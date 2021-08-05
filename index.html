@@ -338,11 +338,11 @@ li .more::after {
     <div class="moreopt" g="state"></div>
     <div class="moreopt" g="important">
       重要程度:
-      <select name="cars" id="cars">
-    <option value="volvo">非常重要</option>
-    <option value="saab">重要</option>
-    <option value="opel" selected>普通</option>
-    <option value="audi">不重要</option>
+      <select name="importantl" id="importantl">
+    <option value="3">非常重要</option>
+    <option value="2">重要</option>
+    <option value="1" selected>普通</option>
+    <option value="0">不重要</option>
   </select>
     </div>
     <div class="moreopt">o</div>
@@ -461,7 +461,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
 });
 function openmore(piid) {
   $('.morebg').css({'display':'block'});
-  $('.morebox').css({'display':'block'});
+  $('.morebox').css({'display':'block'}).attr('piid',piid);
   setTimeout(function() {
     $('.morebg').css({'opacity':'1'});
     $('.morebox').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
@@ -470,7 +470,7 @@ function openmore(piid) {
   $('.moreopt[g="id"]').html('ID:' + piid)
   $('.moreopt[g="length"]').html('字數:' + $('#' + piid + ' input[type="text"]').val().length)
   if($('#' + piid).attr('f') === 'done') {
-$('.moreopt[g="state"]').html('狀態:完成')
+$('.moreopt[g="state"]').html('狀態:已完成')
 }
   else {
 $('.moreopt[g="state"]').html('狀態:未完成')
@@ -478,6 +478,7 @@ $('.moreopt[g="state"]').html('狀態:未完成')
   
 }
 function closemore() {
+ $('#' + $('.morebox').attr('piid')).attr('important',$('#importantl').val());
 $('.morebg').css({'opacity':'0'});
  $('.morebox').css({'opacity':'0','transform':'translate(-50%,-50%) scale(0.8)'});
   setTimeout(function() {
