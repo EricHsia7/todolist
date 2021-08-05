@@ -1,1 +1,487 @@
 <meta charset="UTF-8">
+<title>To Do List</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&display=swap');
+.title {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:45px;
+  background:rgba(255,255,255,0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom:1px #e3e3e3 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight:300;
+}
+.bottom-bar {
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  width:100%;
+  height:50px;
+  background:rgba(255,255,255,0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-top:1px #e3e3e3 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  height:25px;
+  width:25px;
+  font-size:28px;
+  position:relative;
+}
+.icon::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+}
+.allicon::after {
+  content:'\e241';
+}
+.nicon::after {
+  content:'\e5cd';
+}
+.kicon::after {
+  content:'\e876';
+}
+.addicon::after {
+  content:'\e145';
+}
+.buttom-bar-button {
+  height:100%;
+  width:calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  color:#c2c2c2;
+  transition:color 0.2s,width 0s;
+}
+.c2c2c2 {
+  color:#c2c2c2;
+}
+.a333 {
+  color:#333;
+}
+.buttom-bar-button span {
+  font-size:9px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight:500;
+}
+.content {
+  position:fixed;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:calc(100%);
+  background:#fff;
+  overflow:scroll;
+}
+.list {
+  margin-top:45px;
+  list-style:none;
+}
+.addf {
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.05);
+  width:110px;
+  height:35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row;
+  border-radius:12px;
+}
+.add {
+  margin-top:10px;
+  margin-bottom:60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list li {
+  height:50px;
+  font-size:20px;
+  display: flex;
+  align-items: center;
+  border-bottom:1px #f5f5f5 solid;
+  padding-left:0px;
+  position:relative;
+  transform:scaleY(0.8);
+  opacity:0;
+  transition:0.3s;
+}
+.list li:first-child {
+  border-top:1px #f5f5f5 solid;
+}
+li input[type="checkbox"] {
+  width:30px;
+  height:30px;
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding:0px;
+  margin:0px;
+  -webkit-appearance:none;
+  border:none;
+  outline:none; -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+li input[type="checkbox"]::before {
+  content:'';
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:30px;
+  height:30px;
+  background:rgba(0,0,0,0);
+  border-radius:20px;
+  border:3px #f5f5f5 solid;
+  box-sizing: border-box;
+  transition:0.3s;
+}
+li input[type="checkbox"]:checked::before {
+  content:'';
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:30px;
+  height:30px;
+  background:rgba(0,0,0,0);
+  border-radius:20px;
+  border:3px #bdbdbd solid;
+  box-sizing: border-box;
+  transition:0.3s;
+}
+
+li input[type="checkbox"]::after {
+  content:'';
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:24px;
+  height:24px;
+  background:#bdbdbd;
+  border-radius:20px;
+  transform:scale(0.65);
+  transition:0.3s;
+  opacity:0;
+}
+li input[type="checkbox"]:checked::after {
+  content:'';
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:24px;
+  height:24px;
+  background:#bdbdbd;
+  border-radius:20px;
+  transform:scale(0.8);
+  transition:0.3s;
+  opacity:1;
+}
+li input[type="text"] {
+  position:absolute;
+  top:5px;
+  left:45px;
+  height:40px;
+  border:none;
+  padding:0px;
+  margin:0px;
+  width:calc(100% - 50px - 45px);
+  outline:none; -webkit-tap-highlight-color:rgba(0,0,0,0);
+  font-size:20px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight:500;
+}
+li .more {
+  position:absolute;
+  top:7.5px;
+  right:7.5px;
+  color:#bdbdbd;
+  height:35px;
+  width:35px;
+  font-size:30px;
+}
+li .more::after {
+  content:'\e5d3';
+}
+.morebg {
+  position:fixed;
+  left:0px;
+  top:0px;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  opacity:0;
+  display:none;
+  transition:0.3s;
+}
+.morebox {
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  width:clamp(280px,80vw,400px);
+  height:clamp(280px,80vw,400px);
+  border-radius:15px;
+  background:rgba(255,255,255,1);
+  overflow:scroll;
+  opacity:0;
+  display:none;
+  transition:0.3s;
+}
+.moretitle {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:45px;
+  background:rgba(255,255,255,0);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom:1px #e3e3e3 solid;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight:300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:18px;
+}
+.moreclose {
+  position:absolute;
+  right:7.5px;
+  top:7.5px;
+  height:30px;
+  width:30px;
+}
+.moreclose::after {
+  content:'\e5cd';
+}
+.morecontent {
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:calc(100%);
+  overflow:scroll;
+}
+.moreopt {
+  position:relative;
+  width:calc(100% - 10px);
+  height:50px;
+  border-bottom:1px #f5f5f5 solid;
+  display: flex;
+  align-items: center;
+  padding-left:10px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight:500;
+}
+</style>
+<div class="content">
+  <div class="list">
+  </div>
+  <div class="add">
+<div class="addf" ripple-onclick="addThing()">
+    <div class="icon addicon"></div>新增項目
+    </div>
+  </div>
+  <style id="thingstyle">
+
+  </style>
+</div>
+
+
+<div class="bottom-bar">
+  <div class="buttom-bar-button a333" ronclick="tab(0)">
+    <div class="icon allicon"></div>
+    <span>
+      全部
+    </span>
+  </div>
+  <div class="title">To Do List</div>
+  <div class="buttom-bar-button" ronclick="tab(1)">
+    <div class="icon nicon"></div>
+    <span>
+      未完成
+    </span>
+  </div>
+  <div class="buttom-bar-button" ronclick="tab(2)">
+    <div class="icon kicon"></div>
+    <span>
+      已完成
+    </span>
+  </div>
+</div>
+<div class="morebg"></div>
+<div class="morebox">
+  <div class="morecontent">
+    <div class="moreopt" style="margin-top:45px" g="id"></div>
+    <div class="moreopt" g="length"></div>
+    <div class="moreopt" g="state"></div>
+    <div class="moreopt" g="important">
+      重要程度:
+      <select name="cars" id="cars">
+    <option value="volvo">非常重要</option>
+    <option value="saab">重要</option>
+    <option value="opel" selected>普通</option>
+    <option value="audi">不重要</option>
+  </select>
+    </div>
+    <div class="moreopt">o</div>
+    <div class="moreopt">o</div>
+    <div class="moreopt">o</div>
+    <div class="moreopt">o</div>
+    <div class="moreopt">o</div>
+    <div class="moreopt">o</div>
+    <div class="moreopt">o</div>
+  </div>
+  <div class="moretitle">選項<div class="icon moreclose" ripple-onclick="closemore()"></div></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
+<script>
+ripple('.buttom-bar-button,.addf','#000','0.3',1200,'true');
+ripple('.moreclose','#000','0.3',500,'true');
+function genid(mode) {
+if(mode === "random"){
+var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
+            var genid = "";
+            for (var i = 0; i < 8; i++) {
+                var genrandomNumber = Math.floor(Math.random() * genidchars.length);
+                genid += genidchars.substring(genrandomNumber, genrandomNumber + 1);
+            }
+  return genid ;
+}
+          
+ if(mode === "time"){
+   var gtoday=new Date();
+   var genid2 = (gtoday.getMonth()+1) + '_' + gtoday.getDate() + '_' + gtoday.getHours() + '_' + gtoday.getMinutes() + '_' + gtoday.getSeconds() + '-' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8)) + '' + (1+Math.floor(Math.random() * 8));
+   
+   return genid2
+ }
+  
+  if(mode === "number"){
+   
+   var genid3 = '' ;
+for (var i = 0; i < 16; i++) {
+  genid3 += '' + (0+Math.floor(Math.random() * 9))
+}
+   return genid3
+ }
+  
+  if(mode === "uuid"){
+var genidchars4 = "abcdef012345678";
+    var geniduu = [8,4,4,4,12];
+            var genid4 = "";
+            var genid5 = "";
+    for (var ia = 0; ia < geniduu.length; ia++) {
+      var genid4 = "";
+            for (var i = 0; i < geniduu[ia]; i++) {
+                var genrandomNumber4 = Math.floor(Math.random() * genidchars4.length);
+                genid4 += genidchars4.substring(genrandomNumber4, genrandomNumber4 + 1);
+            }
+genid5 += '-' + genid4 ;
+    }
+    return genid5.substring(1,genid5.length)
+  }
+
+}
+
+
+function addThing() {
+  var rdid = genid('random') ;
+  var trdid = "'" + rdid + "'"
+  $('.list').append('<li id="' + rdid + '" f="n"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
+
+
+  setTimeout(function() {
+ $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
+},1);
+setTimeout(function() {
+    $('#' + rdid + ' input').focus();
+},100);
+  //add
+  ripple('.more[pid="' + rdid + '"]','#000','0.3',500,'true');
+  
+  $('input[type="checkbox"]').click(function() {
+if($(this).prop("checked")) {
+$('#' + $(this).attr('pid')).attr('f','done')
+}
+  else {
+$('#' + $(this).attr('pid')).attr('f','n')
+}
+});
+  
+  eval($('.buttom-bar-button').eq(0).attr('ronclick'));
+  $('.buttom-bar-button').attr('class','buttom-bar-button c2c2c2');
+  $('.buttom-bar-button').eq(0).attr('class','buttom-bar-button a333');
+  $('.content').scrollTop($('.content').innerHeight());
+}
+function tab(tabeq) {
+  if(tabeq===0) {
+$('#thingstyle').html('li[f="d"] {display:none;}');
+}
+  if(tabeq===1) {
+$('#thingstyle').html('li[f="done"] {display:none;}');
+}
+  if(tabeq===2) {
+$('#thingstyle').html('li[f="n"] {display:none;}');
+}
+}
+$('.buttom-bar-button').click(function() {
+eval($(this).attr('ronclick'));
+  $('.buttom-bar-button').attr('class','buttom-bar-button c2c2c2');
+  $(this).attr('class','buttom-bar-button a333');
+});
+$('input[type="checkbox"]').click(function() {
+if($(this).prop("checked")) {
+$('#' + $(this).attr('pid')).attr('f','done')
+}
+  else {
+$('#' + $(this).attr('pid')).attr('f','n')
+}
+});
+function openmore(piid) {
+  $('.morebg').css({'display':'block'});
+  $('.morebox').css({'display':'block'});
+  setTimeout(function() {
+    $('.morebg').css({'opacity':'1'});
+    $('.morebox').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
+  },1);
+  
+  $('.moreopt[g="id"]').html('ID:' + piid)
+  $('.moreopt[g="length"]').html('字數:' + $('#' + piid + ' input[type="text"]').val().length)
+  if($('#' + piid).attr('f') === 'done') {
+$('.moreopt[g="state"]').html('狀態:完成')
+}
+  else {
+$('.moreopt[g="state"]').html('狀態:未完成')
+}
+  
+}
+function closemore() {
+$('.morebg').css({'opacity':'0'});
+ $('.morebox').css({'opacity':'0','transform':'translate(-50%,-50%) scale(0.8)'});
+  setTimeout(function() {
+$('.morebg').css({'display':'none'});
+  $('.morebox').css({'display':'none'});
+  },300);
+}
+</script>
