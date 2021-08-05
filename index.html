@@ -553,7 +553,7 @@ $('.morebg').css({'display':'none'});
     $('#' + delid).remove()
   }
   function copytext(copyid) {
-        var copyext = document.getElementById(copyid);
+        var copyext = $('#' + copyid + ' input[type="text"]') ;
         copyext.select();
         document.execCommand("Copy");
         closemore();
