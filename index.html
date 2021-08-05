@@ -340,7 +340,19 @@ select[le="3"] {
 .delete {
   padding:5px;
   color:#E76F51;
-  background:rgba(231, 111, 81,0)
+  background:rgba(231, 111, 81,0);
+  margin-left:5px
+  }
+  .copy_text {
+    padding:5px;
+  color:#333;
+  background:rgba(0, 0, 0,0);
+    
+  }
+  .flexrow {
+    display: flex;
+  justify-content: center;
+  align-items: center;
   }
 </style>
 <div class="content">
@@ -393,7 +405,7 @@ select[le="3"] {
     <option value="0">不重要</option>
   </select>
     </div>
-    <div class="moreopt"><div class="delete">刪除項目</div></div>
+    <div class="moreopt flexrow"><div class="copy_text">拷貝文字</div><div class="delete">刪除項目</div></div>
   </div>
   <div class="moretitle">選項<div class="icon moreclose" ripple-onclick="closemore()"></div></div>
 </div>
@@ -403,6 +415,7 @@ select[le="3"] {
 ripple('.buttom-bar-button,.addf','#000','0.3',1200,'true');
 ripple('.moreclose','#000','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
+  ripple('.copy_text','#000','0.3',500,'true');
 function genid(mode) {
 if(mode === "random"){
 var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
@@ -521,6 +534,7 @@ $('.moreopt[g="state"]').html('狀態:未完成')
   $('#importantl').val($('#' + piid).attr('important')).attr('le',$('#' + piid).attr('important'));
   var tpiid = '"' + piid + '"' ;
   $('.delete').attr('ripple-onclick','deletething(' + tpiid + ')');
+  $('.copy_text').attr('ripple-onclick','copytext(' + tpiid + ')');
 }
 function closemore() {
  $('#' + $('.morebox').attr('piid')).attr('important',$('#importantl').val()).attr('le',$('#importantl').val());
@@ -537,5 +551,11 @@ $('.morebg').css({'display':'none'});
   function deletething(delid) {
     closemore();
     $('#' + delid).remove()
+  }
+  function copytext(copyid) {
+        var copyext = document.getElementById(copyid);
+        copyext.select();
+        document.execCommand("Copy");
+        closemore();
   }
 </script>
