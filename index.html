@@ -555,6 +555,8 @@ $('#' + $(this).attr('pid')).attr('f','n')
   $('.buttom-bar-button').attr('class','buttom-bar-button c2c2c2');
   $('.buttom-bar-button').eq(0).attr('class','buttom-bar-button a333');
   $('.content').scrollTop($('.content').innerHeight());
+  
+  savetodolist();
 }
 function tab(tabeq) {
   if(tabeq===0) {
@@ -579,6 +581,7 @@ $('#' + $(this).attr('pid')).attr('f','done')
   else {
 $('#' + $(this).attr('pid')).attr('f','n')
 }
+  savetodolist();
 });
 function openmore(piid) {
   $('.morebg').css({'display':'block'});
@@ -609,6 +612,7 @@ $('.morebg').css({'opacity':'0'});
 $('.morebg').css({'display':'none'});
   $('.morebox').css({'display':'none'});
   },300);
+  savetodolist();
 }
   $('#importantl').change(function() {
   $(this).attr('le',$(this).val());
