@@ -508,6 +508,9 @@ function getCookie(cname)
       $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
       
       ripple('.more[pid="' + rdid + '"]','#000','0.3',500,'true');
+      $('#' + rdid + ' input').on('keypress',function(e) {
+        savetodolist();
+      });
       $('input[type="checkbox"]').click(function() {
 if($(this).prop("checked")) {
 $('#' + $(this).attr('pid')).attr('f','done')
@@ -522,6 +525,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
       
       
     }
+      
     }
 }
   
@@ -539,7 +543,9 @@ function addThing() {
   var trdid = "'" + rdid + "'"
   $('.list').append('<li id="' + rdid + '" f="n" important="1" le="1"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
 
-
+      $('#' + rdid + ' input').on('keypress',function(e) {
+        savetodolist();
+      });
   setTimeout(function() {
  $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
 },1);
@@ -588,7 +594,7 @@ $('#' + $(this).attr('pid')).attr('f','done')
   else {
 $('#' + $(this).attr('pid')).attr('f','n')
 }
-  setTimeout(function() {savetodolist();},10);
+  savetodolist();
 });
 function openmore(piid) {
   $('.morebg').css({'display':'block'});
