@@ -481,6 +481,7 @@ function getCookie(cname)
   for(var i=0; i<$('.list li').length; i++) {
     savecookiecontent += '&' + $('.list li').eq(i).attr('id') + '#' + $('.list li input[type="checkbox"]').eq(i).prop("checked") + '#' + btoa(encodeURIComponent($('.list li input[type="text"]').eq(i).val())) + '#' + $('.list li').eq(i).attr('important')
   }
+    setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
   }
   
   
