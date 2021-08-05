@@ -489,6 +489,10 @@ function getCookie(cname)
   
   
   function print() {
+    if(getCookie('todolist') === '') {
+      
+    }
+    else {
     for(var i=0; i<getCookie('todolist').split('&').length; i++) {
     //getCookie('todolist').split('&')[i].split('#')[0]
       var rdid = getCookie('todolist').split('&')[i].split('#')[0] ;
@@ -510,6 +514,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
   //$('.content').scrollTop($('.content').innerHeight());
       
       
+    }
     }
 }
   
@@ -621,4 +626,5 @@ $('.morebg').css({'display':'none'});
   $('.morebg').click(function() {
   closemore();
   });
+  print();
 </script>
