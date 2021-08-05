@@ -633,6 +633,7 @@ $('.morebg').css({'display':'none'});
   function deletething(delid) {
     closemore();
     $('#' + delid).remove()
+        savetodolist();
   }
   function copytext(copyid) {
         var copyext = $('#' + copyid + ' input[type="text"]') ;
