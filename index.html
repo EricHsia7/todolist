@@ -588,7 +588,7 @@ $('#' + $(this).attr('pid')).attr('f','done')
   else {
 $('#' + $(this).attr('pid')).attr('f','n')
 }
-  savetodolist();
+  setTimeout(function() {savetodolist();},10);
 });
 function openmore(piid) {
   $('.morebg').css({'display':'block'});
