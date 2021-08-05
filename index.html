@@ -493,7 +493,7 @@ function getCookie(cname)
     //getCookie('todolist').split('&')[i].split('#')[0]
       var rdid = getCookie('todolist').split('&')[i].split('#')[0] ;
       var trdid = "'" + rdid + "'";
-      $('.list').append('<li id="' + rdid + '" f="n" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '"><input type="checkbox" pid="' + rdid + '"><input type="text" value="' + getCookie('todolist').split('&')[i].split('#')[2] + '"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
+      $('.list').append('<li id="' + rdid + '" f="n" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '"><input type="checkbox" pid="' + rdid + '"><input type="text" value="' + decodeURIComponent(atob(getCookie('todolist').split('&')[i].split('#')[2])) + '"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
       $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
       
       ripple('.more[pid="' + rdid + '"]','#000','0.3',500,'true');
