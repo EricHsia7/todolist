@@ -525,7 +525,8 @@ $('.moreopt[g="state"]').html('狀態:已完成')
 $('.moreopt[g="state"]').html('狀態:未完成')
 }
   $('#importantl').val($('#' + piid).attr('important')).attr('le',$('#' + piid).attr('important'));
-  $('.delete').attr('ripple-onclick','deletething(' + piid + ')');
+  var tpiid = '"' + piid + '"' ;
+  $('.delete').attr('ripple-onclick','deletething(' + tpiid + ')');
 }
 function closemore() {
  $('#' + $('.morebox').attr('piid')).attr('important',$('#importantl').val()).attr('le',$('#importantl').val());
