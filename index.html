@@ -645,7 +645,7 @@ $('.morebg').css({'display':'none'});
   closemore();
   });
   print();
-  $('*').click(function() {
+  setInterval(function() {
     savetodolist();
-  });
+  },5000);
 </script>
