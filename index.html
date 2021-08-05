@@ -409,7 +409,7 @@ genid5 += '-' + genid4 ;
 function addThing() {
   var rdid = genid('random') ;
   var trdid = "'" + rdid + "'"
-  $('.list').append('<li id="' + rdid + '" f="n"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
+  $('.list').append('<li id="' + rdid + '" f="n" important="1"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
 
 
   setTimeout(function() {
