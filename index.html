@@ -527,9 +527,7 @@ function getCookie(cname)
       $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
       
       ripple('.more[pid="' + rdid + '"]','#000','0.3',500,'true');
-      $('#' + rdid + ' input').on('keypress',function(e) {
-        savetodolist();
-      });
+      
       $('input[type="checkbox"]').click(function() {
 if($(this).prop("checked")) {
 $('#' + $(this).attr('pid')).attr('f','done')
@@ -562,9 +560,7 @@ function addThing() {
   var trdid = "'" + rdid + "'"
   $('.list').append('<li id="' + rdid + '" f="n" important="0" le="0"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
 
-      $('#' + rdid + ' input').on('keypress',function(e) {
-        savetodolist();
-      });
+      
   setTimeout(function() {
  $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
 },1);
@@ -588,7 +584,6 @@ $('#' + $(this).attr('pid')).attr('f','n')
   $('.buttom-bar-button').eq(0).attr('class','buttom-bar-button a333');
   $('.content').scrollTop($('.content').innerHeight());
   issaved = false ;
-  savetodolist();
 }
 function tab(tabeq) {
   if(tabeq===0) {
@@ -614,7 +609,6 @@ $('#' + $(this).attr('pid')).attr('f','done')
 $('#' + $(this).attr('pid')).attr('f','n')
 }
   issaved = false ;
-  savetodolist();
 });
 function openmore(piid) {
   $('.morebg').css({'display':'block'});
@@ -646,7 +640,6 @@ $('.morebg').css({'display':'none'});
   $('.morebox').css({'display':'none'});
   },300);
   issaved = false ;
-  savetodolist();
 }
   $('#importantl').change(function() {
   $(this).attr('le',$(this).val());
@@ -655,7 +648,6 @@ $('.morebg').css({'display':'none'});
     closemore();
     $('#' + delid).remove();
     issaved = false ;
-        savetodolist();
   }
   function copytext(copyid) {
         var copyext = $('#' + copyid + ' input[type="text"]') ;
