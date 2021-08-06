@@ -507,6 +507,7 @@ select[le="3"] {
     <div class="moresetopt" g="deleteall" ripple-onclick="deleteallthing()">刪除所有項目</div>
     <div class="moresetopt" g="deletedone" ripple-onclick="deletedonething()">刪除已完成項目</div>
     <div class="moresetopt" g="deleten" ripple-onclick="deletenthing()">刪除未完成項目</div>
+    <div class="moresetopt" g="storagesize"></div>
   </div>
   <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div></div>
 </div>
@@ -583,6 +584,7 @@ function getCookie(cname)
 }
   var savecookiecontent = '' ;
   var issaved = true ;
+  var todolistcookiestoragesize = '0%' ;
   function savetodolist() {
     if(issaved) {
       
@@ -595,6 +597,7 @@ function getCookie(cname)
     //console.log('saving - ' + i/$('.list li').length*100 + '%');
     issaved = false ;
     setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
+    var todolistcookiestoragesize = Math.round((savecookiecontent.substring(1,savecookiecontent.length).length/4090)*100) + '%' ;
   }
     console.log('saved')
     issaved = true ;
@@ -788,6 +791,8 @@ $('.morebg').css({'display':'none'});
     }
   },10);
   function moreset() {
+	  todolistcookiestoragesize = Math.round(getCookie('todolist').length/4090)*100) + '%' ;
+  $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize)
   $('.moresetbg').css({'display':'block'});
   $('.moresetbox').css({'display':'block'});
   setTimeout(function() {
