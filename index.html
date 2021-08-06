@@ -822,6 +822,10 @@ $('.moresetbg').css({'display':'none'});
     $('.list li[f="n"]').remove();
     issaved = false ;
   }
+  document.addEventListener("paste", function (e){
+    issaved = false ;
+  });
+		
 </script>
 <style>
    .bottom-bar {
