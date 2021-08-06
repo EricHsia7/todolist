@@ -494,13 +494,10 @@ function getCookie(cname)
     savecookiecontent += '&' + $('.list li').eq(i).attr('id') + '#' + $('.list li input[type="checkbox"]').eq(i).prop("checked") + '#' + btoa(encodeURIComponent($('.list li input[type="text"]').eq(i).val())) + '#' + $('.list li').eq(i).attr('important') ;
     //console.log('saving - ' + i/$('.list li').length*100 + '%');
     issaved = false ;
+    setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
   }
-    setTimeout(function() {
-      setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
     console.log('saved')
     issaved = true ;
-    },10);
-    
     }
   }
   
