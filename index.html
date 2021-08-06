@@ -503,12 +503,12 @@ select[le="3"] {
 <div class="moresetbg"></div>
 <div class="moresetbox">
   <div class="moresetcontent">
-    <div class="moresetopt" style="margin-top:45px" g="reload">重新整理</div>
+    <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="location.reload()">重新整理</div>
     <div class="moresetopt" g="deleteall">刪除所有項目</div>
     <div class="moresetopt" g="deletedone">刪除已完成項目</div>
     <div class="moresetopt" g="deleten">刪除未完成項目</div>
   </div>
-  <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="closemore()"></div></div>
+  <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div></div>
 </div>
 
 
@@ -520,6 +520,7 @@ ripple('.moreclose','#000','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text','#000','0.3',500,'true');
   ripple('.moreset','#000','0.3',500,'true');
+  ripple('.moresetcontent .moresetopt','#000','0.3',800,'true');
   
 function genid(mode) {
 if(mode === "random"){
@@ -786,6 +787,14 @@ $('.morebg').css({'display':'none'});
     $('.moresetbox').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
   },1);
     
+  }
+  function moresetclose() {
+    $('.moresetbg').css({'opacity':'0'});
+ $('.moresetbox').css({'opacity':'0','transform':'translate(-50%,-50%) scale(0.8)'});
+  setTimeout(function() {
+$('.moresetbg').css({'display':'none'});
+  $('.moresetbox').css({'display':'none'});
+  },300);
   }
 </script>
 <style>
