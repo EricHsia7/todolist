@@ -477,7 +477,12 @@ function getCookie(cname)
   return "";
 }
   var savecookiecontent = '' ;
+  var issaved = true ;
   function savetodolist() {
+    if(issaved) {
+      
+    }
+    else {
     savecookiecontent = '' ;
   for(var i=0; i<$('.list li').length; i++) {
     savecookiecontent += '&' + $('.list li').eq(i).attr('id') + '#' + $('.list li input[type="checkbox"]').eq(i).prop("checked") + '#' + btoa(encodeURIComponent($('.list li input[type="text"]').eq(i).val())) + '#' + $('.list li').eq(i).attr('important') ;
@@ -485,6 +490,8 @@ function getCookie(cname)
   }
     setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
     console.log('saved')
+    issaved = true ;
+    }
   }
   
   
@@ -574,7 +581,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
   $('.buttom-bar-button').attr('class','buttom-bar-button c2c2c2');
   $('.buttom-bar-button').eq(0).attr('class','buttom-bar-button a333');
   $('.content').scrollTop($('.content').innerHeight());
-  
+  issaved = false ;
   savetodolist();
 }
 function tab(tabeq) {
@@ -600,6 +607,7 @@ $('#' + $(this).attr('pid')).attr('f','done')
   else {
 $('#' + $(this).attr('pid')).attr('f','n')
 }
+  issaved = false ;
   savetodolist();
 });
 function openmore(piid) {
@@ -631,6 +639,7 @@ $('.morebg').css({'opacity':'0'});
 $('.morebg').css({'display':'none'});
   $('.morebox').css({'display':'none'});
   },300);
+  issaved = false ;
   savetodolist();
 }
   $('#importantl').change(function() {
@@ -638,7 +647,8 @@ $('.morebg').css({'display':'none'});
   });
   function deletething(delid) {
     closemore();
-    $('#' + delid).remove()
+    $('#' + delid).remove();
+    issaved = false ;
         savetodolist();
   }
   function copytext(copyid) {
