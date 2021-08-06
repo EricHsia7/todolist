@@ -66,6 +66,12 @@
 .addicon::after {
   content:'\e145';
 }
+.sync::after {
+  content:'\e627';
+  }
+.syncd::after {
+  content:'\e877';
+  }
 .buttom-bar-button {
   height:100%;
   width:calc(100% / 3);
@@ -376,7 +382,7 @@ select[le="3"] {
       全部
     </span>
   </div>
-  <div class="title">Todo List</div>
+  <div class="title"><div class="icon sync" id="syncst"></div>Todo List</div>
   
   <div class="buttom-bar-button" ronclick="tab(1)">
     <div class="icon nicon"></div>
@@ -664,4 +670,13 @@ $('.morebg').css({'display':'none'});
   setInterval(function() {
     savetodolist();
   },3000);
+  setInterval(function() {
+    if(issaved) {
+      $('#syncst').attr('class','syncd');
+    }
+    else {
+      $('#syncst').attr('class','sync');
+    }
+  },10);
+  
 </script>
