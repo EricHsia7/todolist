@@ -504,9 +504,9 @@ select[le="3"] {
 <div class="moresetbox">
   <div class="moresetcontent">
     <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="location.reload()">重新整理</div>
-    <div class="moresetopt" g="deleteall">刪除所有項目</div>
-    <div class="moresetopt" g="deletedone">刪除已完成項目</div>
-    <div class="moresetopt" g="deleten">刪除未完成項目</div>
+    <div class="moresetopt" g="deleteall" ripple-onclick="deleteallthing()">刪除所有項目</div>
+    <div class="moresetopt" g="deletedone" ripple-onclick="deletedonething()">刪除已完成項目</div>
+    <div class="moresetopt" g="deleten" ripple-onclick="deletenthing()">刪除未完成項目</div>
   </div>
   <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div></div>
 </div>
