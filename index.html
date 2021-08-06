@@ -791,7 +791,7 @@ $('.morebg').css({'display':'none'});
     }
   },10);
   function moreset() {
-	  todolistcookiestoragesize = Math.round(getCookie('todolist').length/4090)*100) + '%' ;
+	  todolistcookiestoragesize = Math.round((getCookie('todolist').length/4090)*100) + '%' ;
   $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize)
   $('.moresetbg').css({'display':'block'});
   $('.moresetbox').css({'display':'block'});
