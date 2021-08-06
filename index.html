@@ -799,6 +799,21 @@ $('.moresetbg').css({'display':'none'});
   $('.moresetbg').click(function() {
  moresetclose();   
   });
+  function deleteallthing() {
+    closemore();
+    $('.list li').remove();
+    issaved = false ;
+  }
+  function deletedonething() {
+    closemore();
+    $('.list li[f="done"]').remove();
+    issaved = false ;
+  }
+  function deletenthing() {
+    closemore();
+    $('.list li[f="n"]').remove();
+    issaved = false ;
+  }
 </script>
 <style>
    .bottom-bar {
