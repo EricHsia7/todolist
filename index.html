@@ -544,6 +544,9 @@ $('#' + $(this).attr('pid')).attr('f','n')
     }
       
     }
+    $('input[type="text"]').keyup(function() {
+      issaved = false ;
+    });
 }
   
   
@@ -584,6 +587,10 @@ $('#' + $(this).attr('pid')).attr('f','n')
   $('.buttom-bar-button').eq(0).attr('class','buttom-bar-button a333');
   $('.content').scrollTop($('.content').innerHeight());
   issaved = false ;
+  $('input[type="text"]').keyup(function() {
+      issaved = false ;
+    });
+  
 }
 function tab(tabeq) {
   if(tabeq===0) {
