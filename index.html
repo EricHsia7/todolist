@@ -800,17 +800,17 @@ $('.moresetbg').css({'display':'none'});
  moresetclose();   
   });
   function deleteallthing() {
-    closemore();
+    moresetclose();
     $('.list li').remove();
     issaved = false ;
   }
   function deletedonething() {
-    closemore();
+    moresetclose();
     $('.list li[f="done"]').remove();
     issaved = false ;
   }
   function deletenthing() {
-    closemore();
+    moresetclose();
     $('.list li[f="n"]').remove();
     issaved = false ;
   }
