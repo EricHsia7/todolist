@@ -76,6 +76,9 @@
 .syncd::after {
   content:'\f232';
   }
+  .moreset::after {
+    content:'\e5d3';
+  }
 .buttom-bar-button {
   height:100%;
   width:calc(100% / 3);
@@ -386,7 +389,7 @@ select[le="3"] {
       全部
     </span>
   </div>
-  <div class="title"><div class="icon sync" id="syncst" style="position:absolute;top:50%;left:5px;transform:translateY(-50%)"></div>Todo List</div>
+  <div class="title"><div class="icon sync" id="syncst" style="position:absolute;top:50%;left:5px;transform:translateY(-50%)"></div>Todo List<div class="icon moreset" style="position:absolute;top:50%;right:5px;transform:translateY(-50%)"></div></div>
   
   <div class="buttom-bar-button" ronclick="tab(1)">
     <div class="icon nicon"></div>
@@ -427,6 +430,8 @@ ripple('.buttom-bar-button,.addf','#000','0.3',1200,'true');
 ripple('.moreclose','#000','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text','#000','0.3',500,'true');
+  ripple('.moreset','#000','0.3',500,'true');
+  
 function genid(mode) {
 if(mode === "random"){
 var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
