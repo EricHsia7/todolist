@@ -436,7 +436,6 @@ select[le="3"] {
     padding:5px;
   color:#333;
   background:rgba(0, 0, 0,0);
-    
   }
   .flexrow {
     display: flex;
@@ -583,9 +582,11 @@ li[le="0"] input[type="checkbox"]:checked::after {
   border-bottom:1px #1f1f1f solid;
   color:#fff;
 }
+  .copy_text {
+  color:#fff;
+  }
 		
-		
-		
+
 
 }
 </style>
@@ -666,7 +667,7 @@ li[le="0"] input[type="checkbox"]:checked::after {
 ripple('.buttom-bar-button','#000','0.3',1200,'true');
 	ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
 	
-ripple('.moreclose,.moresetclose','#000','0.3',500,'true');
+ripple('.moreclose,.moresetclose','var(--add-btn-color)','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text','var(--add-btn-color)','0.3',500,'true');
   ripple('.moreset','var(--add-btn-color)','0.3',500,'false');
