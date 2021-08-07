@@ -585,7 +585,10 @@ li[le="0"] input[type="checkbox"]:checked::after {
   .copy_text {
   color:#fff;
   }
-		
+select[le="0"] {
+  color:#fff;
+  border-color:#fff;
+}
 
 
 }
@@ -787,7 +790,7 @@ setcookie('todolist','');
       $('.list').append('<li id="' + rdid + '" f="' + fstrtt + '" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '"><input type="checkbox" pid="' + rdid + '" ' + checkedsta + '><input type="text" value="' + decodeURIComponent(atob(getCookie('todolist').split('&')[i].split('#')[2])) + '"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
       $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
       
-      ripple('.more[pid="' + rdid + '"]','#000','0.3',500,'true');
+      ripple('.more[pid="' + rdid + '"]','var(--add-btn-color)','0.3',500,'true');
       
       $('input[type="checkbox"]').click(function() {
 if($(this).prop("checked")) {
@@ -833,7 +836,7 @@ setTimeout(function() {
     $('#' + rdid + ' input').focus();
 },100);
   //add
-  ripple('.more[pid="' + rdid + '"]','#000','0.3',500,'true');
+  ripple('.more[pid="' + rdid + '"]','var(--add-btn-color)','0.3',500,'true');
   
   $('input[type="checkbox"]').click(function() {
 if($(this).prop("checked")) {
