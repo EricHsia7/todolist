@@ -8,6 +8,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="defualt" />
 <link rel="manifest" href="manifest.json">
 <style>
+:root {
+	--add-btn-color:#000;
+}
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&display=swap');
 .title {
   position:fixed;
@@ -515,6 +518,9 @@ select[le="3"] {
   font-weight:500;
 }
 	@media (prefers-color-scheme: dark) {
+		:root {
+	--add-btn-color:#fff;
+}
 .title {
   background:rgba(0,0,0,0.6);
   border-bottom:1px #1f1f1f solid;
@@ -635,7 +641,9 @@ li[le="0"] input[type="checkbox"]:checked::after {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
 <script>
-ripple('.buttom-bar-button,.addf','#000','0.3',1200,'true');
+ripple('.buttom-bar-button','#000','0.3',1200,'true');
+	ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
+	
 ripple('.moreclose,.moresetclose','#000','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text','#000','0.3',500,'true');
