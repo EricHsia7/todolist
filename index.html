@@ -567,10 +567,70 @@ select[le="3"] {
   font-weight:500;
 	-webkit-user-select: none;
 }
+.storage-box {
+  width:100%;
+  height:60px;
+  background:rgba(0,0,0,0);
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  display:none;
+}
+.storage-bar {
+  height:12px;
+  width:calc(100%);
+  background:#e3e3e3;
+  border-radius:15px;
+  overflow:hidden;
+  position:absolute;
+  left:0px;
+  bottom:0px
+}
+.storage-bar2 {
+  height:12px;
+  min-width:12px;
+  width:60%;
+  background:#333;
+  border-radius:15px;
+  overflow:hidden;
+}
+.storage {
+  width:35px;
+  height:35px;
+  background:#000;
+  position:absolute;
+  top:50%;
+  left:10px;
+  transform:translateY(-50%);
+}
+.storage-title-and-bar {
+  height:35px;
+  width:calc(100% - 55px - 10px);
+  position:absolute;
+  top:50%;
+  left:55px;
+  transform:translateY(-50%);
+}
+#storage-title {
+  position:absolute;
+  left:0px;
+  top:0px;
+  margin:0px;
+  padding:0px;
+}
+	
+	
+	
 	@media (prefers-color-scheme: dark) {
 		:root {
 	--add-btn-color:#fff;
 	--bot-bar-col:#1f1f1f;
+}
+.storage-bar {
+  background:#1f1f1f;
+}
+.storage-bar2 {
+  background:#fff;
 }
 .title {
   background:rgba(0,0,0,0.6);
@@ -648,6 +708,9 @@ background:#000;
 }
 }
 @media only screen and (min-width: 600px) {
+.storage-box {
+display:block;	
+}
 .bottom-bar {
 bottom:none;
 top:45px;
@@ -710,6 +773,17 @@ padding-left:10px;
       已完成
     </span>
   </div>
+	
+<div class="storage-box">
+  <div class="icon storage"></div>
+  <div class="storage-title-and-bar">
+  <div id="storage-title">storage</div>
+  <div class="storage-bar">
+    <div class="storage-bar2"></div>
+  </div>
+  </div>
+</div>
+	
 </div>
 
   <div class="title"><div class="icon sync" id="syncst" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;left:7.5px;transform:translateY(-50%)"></div>Todo List<div class="icon moreset" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)" ripple-onclick="moreset()"></div></div>
