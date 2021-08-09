@@ -927,7 +927,7 @@ function getCookie(cname)
 }
   var savecookiecontent = '' ;
   var issaved = true ;
-  var todolistcookiestoragesize = '0%' ;
+  var todolistcookiestoragesize = '0.00%' ;
   function savetodolist() {
     if(issaved) {
       
@@ -953,8 +953,8 @@ $('.storage-bar2').css({'width':todolistcookiestoragesize});
 else {
 setcookie('todolist','');
    console.log('saved');
-  $('#storage-title').html('儲存空間:0%');
-$('.storage-bar2').css({'width':'0%'});
+  $('#storage-title').html('儲存空間:0.00%');
+$('.storage-bar2').css({'width':'0.00%'});
     issaved = true ;
 }
       
