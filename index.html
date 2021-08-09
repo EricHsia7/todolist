@@ -948,7 +948,9 @@ $('.storage-bar2').css({'width':todolistcookiestoragesize});
       }
 else {
 setcookie('todolist','');
-   console.log('saved')
+   console.log('saved');
+  $('#storage-title').html('儲存空間:0%');
+$('.storage-bar2').css({'width':'0%'});
     issaved = true ;
 }
       
