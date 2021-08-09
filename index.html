@@ -575,6 +575,7 @@ select[le="3"] {
   bottom:0px;
   left:0px;
   display:none;
+  -webkit-user-select: none;
 }
 .storage-bar {
   height:12px;
@@ -584,7 +585,8 @@ select[le="3"] {
   overflow:hidden;
   position:absolute;
   left:0px;
-  bottom:0px
+  bottom:0px;
+  -webkit-user-select: none;
 }
 .storage-bar2 {
   height:12px;
@@ -593,15 +595,16 @@ select[le="3"] {
   background:#333;
   border-radius:15px;
   overflow:hidden;
+  -webkit-user-select: none;
 }
 .storage {
   width:35px;
   height:35px;
-  background:#000;
   position:absolute;
   top:50%;
   left:10px;
   transform:translateY(-50%);
+  -webkit-user-select: none;
 }
 .storage-title-and-bar {
   height:35px;
@@ -610,6 +613,7 @@ select[le="3"] {
   top:50%;
   left:55px;
   transform:translateY(-50%);
+  -webkit-user-select: none;
 }
 #storage-title {
   position:absolute;
@@ -617,6 +621,9 @@ select[le="3"] {
   top:0px;
   margin:0px;
   padding:0px;
+font-family: 'Noto Sans TC', sans-serif;
+font-weight:500;
+-webkit-user-select: none;
 }
 	
 	
@@ -631,6 +638,12 @@ select[le="3"] {
 }
 .storage-bar2 {
   background:#fff;
+}
+.storage::after {
+color:#fff;
+}
+.storage-title {
+color:#fff;
 }
 .title {
   background:rgba(0,0,0,0.6);
@@ -677,7 +690,7 @@ li[le="0"] input[type="checkbox"]:checked::after {
   background:#1f1f1f;
   color:#fff;
 }
-		
+
 		
 		
 .morebox,.moresetbox {
@@ -832,10 +845,9 @@ var url = new URL(getUrlString);
 var url_r = url.searchParams.get('r');
 var url_re = url.searchParams.get('re') ;
 var version = '87kj04q6' ;
-ripple('.buttom-bar-button','#000','0.3',1200,'true');
-	ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
-	
-ripple('.moreclose,.moresetclose','var(--add-btn-color)','0.3',500,'true');
+  ripple('.buttom-bar-button','#000','0.3',1200,'true');
+  ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
+  ripple('.moreclose,.moresetclose','var(--add-btn-color)','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text','var(--add-btn-color)','0.3',500,'true');
   ripple('.moreset','var(--add-btn-color)','0.3',500,'false');
