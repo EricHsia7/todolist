@@ -937,8 +937,12 @@ function getCookie(cname)
     setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
     var todolistcookiestoragesize = ((savecookiecontent.substring(1,savecookiecontent.length).length/4090)*100).toFixed(2) + '%' ;
   }
-    console.log('saved')
+    console.log('saved');
     issaved = true ;
+	      
+    //todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
+  $('.storage-title').html('儲存空間(4096byte):' + todolistcookiestoragesize);
+
       }
 else {
 setcookie('todolist','');
@@ -985,6 +989,7 @@ $('#' + $(this).attr('pid')).attr('f','done')
 $('#' + $(this).attr('pid')).attr('f','n')
 }
         issaved = false ;
+
 });
   
   
@@ -997,6 +1002,9 @@ $('#' + $(this).attr('pid')).attr('f','n')
     $('input[type="text"]').keyup(function() {
       issaved = false ;
     });
+todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
+  $('.storage-title').html('儲存空間(4096byte):' + todolistcookiestoragesize);
+
 }
   
   
@@ -1130,7 +1138,7 @@ $('.morebg').css({'display':'none'});
   },10);
   function moreset() {
 	  todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
-  $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize)
+  $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize);
   $('.moresetbg').css({'display':'block'});
   $('.moresetbox').css({'display':'block'});
   setTimeout(function() {
