@@ -941,7 +941,7 @@ function getCookie(cname)
     issaved = true ;
 	      
     //todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
-  $('.storage-title').html('儲存空間(4096byte):' + todolistcookiestoragesize);
+  $('#storage-title').html('儲存空間(4096byte):' + todolistcookiestoragesize);
 
       }
 else {
@@ -1003,7 +1003,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
       issaved = false ;
     });
 todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
-  $('.storage-title').html('儲存空間(4096byte):' + todolistcookiestoragesize);
+  $('#storage-title').html('儲存空間(4096byte):' + todolistcookiestoragesize);
 
 }
   
