@@ -849,6 +849,7 @@ var getUrlString = location.href;
 var url = new URL(getUrlString);
 var url_r = url.searchParams.get('r');
 var url_re = url.searchParams.get('re') ;
+var url_pwa = url.searchParams.get('pwa') ;
 var version = '87kj04q6' ;
   ripple('.buttom-bar-button','#000','0.3',1200,'true');
   ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
@@ -907,7 +908,14 @@ if(url_r === '1') {
 //history.pushState(null, null,'https://erichsia7.github.io/todolist/?r=0&re=' + url_re);
 }
 else {
+	
+	if(url_pwa === "1") {
+	location.replace('https://erichsia7.github.io/todolist/?pwa=1&r=1&re=' + genid('uuid'));
+	}
+	else {
 	location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
+	}
+	
 }
 	
 	
