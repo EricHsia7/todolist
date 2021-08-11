@@ -831,7 +831,7 @@ padding-left:10px;
 <div class="moresetbg"></div>
 <div class="moresetbox">
   <div class="moresetcontent">
-    <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="location.replace('https://erichsia7.github.io/todolist/?r=0')">重新整理</div>
+    <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="relooad()">重新整理</div>
     <div class="moresetopt" g="deleteall" ripple-onclick="deleteallthing()">刪除所有項目</div>
     <div class="moresetopt" g="deletedone" ripple-onclick="deletedonething()">刪除已完成項目</div>
     <div class="moresetopt" g="deleten" ripple-onclick="deletenthing()">刪除未完成項目</div>
@@ -917,7 +917,15 @@ else {
 	}
 	
 }
-	
+
+function relooad() {
+	if(url_pwa === "1") {
+	location.replace('https://erichsia7.github.io/todolist/?pwa=1&r=1&re=' + genid('uuid'));
+	}
+	else {
+	location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
+	}
+}
 	
 function setcookie(cookiename,cookievalue) {
 document.cookie = cookiename + '=' + cookievalue + '; max-age='+60*60*24*30;
