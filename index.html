@@ -692,6 +692,11 @@ width:80%;
 	--add-btn-color:#fff;
 	--bot-bar-col:#1f1f1f;
 }
+.alert {
+  background:#121212;
+  color:#fff;
+}
+
 .storage-bar {
   background:#1f1f1f;
 }
@@ -930,7 +935,7 @@ var version = '87kj04q6' ;
   ripple('.copy_text','var(--add-btn-color)','0.3',500,'true');
   ripple('.moreset','var(--add-btn-color)','0.3',500,'false');
   ripple('.moresetcontent .moresetopt','var(--add-btn-color)','0.3',1200,'true');
-  ripple('.alert-btn','#000','0.4',500,'true');
+  ripple('.alert-btn','var(--add-btn-color)','0.3',500,'true');
 function genid(mode) {
 if(mode === "random"){
 var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
