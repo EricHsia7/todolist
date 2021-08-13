@@ -905,8 +905,8 @@ padding-left:10px;
   <div class="alert-mes">您必須刪除一些項目，才能釋出空間並繼續儲存新項目。</div>
   <div>
     <div class="btnb">
-<div class="alert-btn">關閉</div>
-<div class="alert-btn">開啟設定</div>
+<div class="alert-btn" ripple-onclick="storagealertclose();">關閉</div>
+<div class="alert-btn" ripple-onclick="storagealertclose();moreset();">開啟設定</div>
       </div>
   </div>
 </div>
@@ -1284,9 +1284,19 @@ $('.moresetbg').css({'display':'none'});
     $('.alertbg').css({'opacity':'1'});
     $('.alert').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
   },90);
-	  }
+}
 	  
   }
+
+function storagealertclose() {
+    $('.alertbg').css({'opacity':'0'});
+ $('.alert').css({'opacity':'0','transform':'translate(-50%,-50%) scale(0.8)'});
+  setTimeout(function() {
+$('.alertbg').css({'display':'none'});
+  $('.alert').css({'display':'none'});
+  },300);
+  }
+	
   document.addEventListener("paste", function (e){
     issaved = false ;
   });
