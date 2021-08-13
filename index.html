@@ -1123,6 +1123,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
 todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
   $('#storage-title').html('儲存空間:' + todolistcookiestoragesize);
   $('.storage-bar2').css({'width':todolistcookiestoragesize});
+  $('.list').scrollTop(getCookie('todolistscroll'));
 }
   
   
@@ -1322,7 +1323,9 @@ document.addEventListener("cut", function (e){
 document.addEventListener("selectionchange", function (e){
     issaved = false ;
   });
-		
+$('.list').scroll(function() {
+  setcookie('todolistscroll',$('.list').scrollTop());
+});
 </script>
 <style>
    .bottom-bar {
