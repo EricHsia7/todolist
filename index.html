@@ -1029,7 +1029,8 @@ function getCookie(cname)
     //console.log('saving - ' + i/$('.list li').length*100 + '%');
     issaved = false ;
     setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
-    var todolistcookiestoragesize = ((savecookiecontent.substring(1,savecookiecontent.length).length/4090)*100).toFixed(2) + '%' ;
+    //var todolistcookiestoragesize = ((savecookiecontent.substring(1,savecookiecontent.length).length/4090)*100).toFixed(2) + '%' ;
+    var todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
   }
     if(savecookiecontent.length < 4090) {
     console.log('saved');
