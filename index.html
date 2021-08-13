@@ -93,6 +93,11 @@ background:#fff;
   content:'\e92d';
 -webkit-user-select: none;
   }
+.syncerr::after {
+content:'\e001';
+-webkit-user-select: none;
+}
+
   .moreset::after {
     content:'\e8b8';
 -webkit-user-select: none;
@@ -1252,7 +1257,14 @@ $('.morebg').css({'display':'none'});
       $('#syncst').attr('class','icon syncd');
     }
     else {
+	    
+      if(storagefull > 1) {
+      $('#syncst').attr('class','icon syncerr');
+      }
+      else {
       $('#syncst').attr('class','icon sync');
+      }
+	    
     }
   },10);
   function moreset() {
