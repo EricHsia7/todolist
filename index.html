@@ -1326,6 +1326,9 @@ document.addEventListener("selectionchange", function (e){
 $('.list').scroll(function() {
   setcookie('todolistscroll',$('.list').scrollTop());
 });
+document.querySelector('.list').addEventListener('scroll', function(e) {
+  setcookie('todolistscroll',document.querySelector('.list').scrollY);
+});
 </script>
 <style>
    .bottom-bar {
