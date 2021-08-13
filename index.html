@@ -1257,6 +1257,15 @@ $('.moresetbg').css({'display':'none'});
     $('.list li[f="n"]').remove();
     issaved = false ;
   }
+  function storageisfull() {
+  $('.alert').css({'display':'flex'});
+  $('.alertbg').css({'display':'block'});
+  setTimeout(function() {
+    $('.alertbg').css({'opacity':'1'});
+    $('.alert').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
+  },90);
+
+  }
   document.addEventListener("paste", function (e){
     issaved = false ;
   });
