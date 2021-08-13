@@ -1284,7 +1284,8 @@ $('.moresetbg').css({'display':'none'});
   setTimeout(function() {
     $('.alertbg').css({'opacity':'1'});
     $('.alert').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
-  },90);
+    $('input[type="text"]').blur();
+  },1);
 }
 	  
   }
