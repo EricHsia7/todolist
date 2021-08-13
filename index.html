@@ -1329,6 +1329,10 @@ $('.list').scroll(function() {
 document.querySelector('.list').addEventListener('scroll', function(e) {
   setcookie('todolistscroll',document.querySelector('.list').scrollY);
 });
+document.querySelector('.list').onscroll = function(e) {
+  setcookie('todolistscroll',document.querySelector('.list').scrollY);
+};
+
 </script>
 <style>
    .bottom-bar {
