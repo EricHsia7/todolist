@@ -627,6 +627,50 @@ font-family: 'Noto Sans TC', sans-serif;
 font-weight:500;
 -webkit-user-select: none;
 }
+
+
+
+.alert {
+  width:clamp(280px,80vw,400px);
+  height:clamp(280px,80vw,400px);
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(0.8);
+  background:#fff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+  border-radius:15px;
+  opacity:0;
+}
+.alert img {
+height:calc(100% - 140px);
+transform:scale(0.9)
+}
+.alert h3 {
+  margin:0px;
+  padding:0px;
+}
+.alert-mes {
+width:80%;
+  text-align:center
+}
+.alert-btn {
+  padding:5px;
+  font-weight:500;
+}
+.btnb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row;
+  padding:5px;
+}
+	
+	
+	
 	
 	
 	
@@ -842,6 +886,21 @@ padding-left:10px;
 </div>
 
 
+<div class="alert">
+  <img src="https://erichsia7.github.io/todolist/svg/Collecting-amico.svg">
+  <h3>儲存空間不足</h3>
+  <div class="alert-mes">您必須刪除一些項目，才能釋出空間並繼續儲存新項目。</div>
+  <div>
+    <div class="btnb">
+<div class="alert-btn">關閉</div>
+<div class="alert-btn">開啟設定</div>
+      </div>
+  </div>
+</div>
+
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
 <script>
@@ -858,7 +917,7 @@ var version = '87kj04q6' ;
   ripple('.copy_text','var(--add-btn-color)','0.3',500,'true');
   ripple('.moreset','var(--add-btn-color)','0.3',500,'false');
   ripple('.moresetcontent .moresetopt','var(--add-btn-color)','0.3',1200,'true');
-  
+  ripple('.alert-btn','#000','0.4',500,'true');
 function genid(mode) {
 if(mode === "random"){
 var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
