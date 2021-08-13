@@ -1024,10 +1024,6 @@ function getCookie(cname)
   var todolistcookiestoragesize = '0.00%' ;
   function savetodolist() {
     if(issaved) {
-      if(savecookiecontent.length < 4090) {
-    storagefull = 0 ;
-    storageisfull();
-}
     }
     else {
     savecookiecontent = '' ;
@@ -1043,11 +1039,11 @@ function getCookie(cname)
     if(savecookiecontent.length < 4090) {
     console.log('saved');
     issaved = true ;
-    storagefull = 0 ;
+    //storagefull = 0 ;
     }
     else {
-    storageisfull();
-    storagefull += 2 ;
+    //storageisfull();
+    //storagefull = 2 ;
     issaved = false ;
     }
     //todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
@@ -1063,6 +1059,16 @@ $('.storage-bar2').css({'width':'0.00%'});
     issaved = true ;
 }
     }
+	  
+if(savecookiecontent.length < 4090) {
+    storagefull = 0 ;
+    storageisfull();
+}
+else {
+    storageisfull();
+    storagefull = 2 ;
+}
+
   }
   
   
