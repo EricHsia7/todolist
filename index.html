@@ -1015,6 +1015,7 @@ function getCookie(cname)
 }
   var savecookiecontent = '' ;
   var issaved = true ;
+  var storagefull = 0 ;
   var todolistcookiestoragesize = '0.00%' ;
   function savetodolist() {
     if(issaved) {
@@ -1030,9 +1031,16 @@ function getCookie(cname)
     setcookie('todolist',savecookiecontent.substring(1,savecookiecontent.length));
     var todolistcookiestoragesize = ((savecookiecontent.substring(1,savecookiecontent.length).length/4090)*100).toFixed(2) + '%' ;
   }
+    if(savecookiecontent.length < 4090) {
     console.log('saved');
     issaved = true ;
-	      
+    storagefull = 0 ;
+    }
+    else {
+    storageisfull();
+    storagefull += 2 ;
+    issaved = false ;
+    }
     //todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
   $('#storage-title').html('儲存空間:' + todolistcookiestoragesize);
 $('.storage-bar2').css({'width':todolistcookiestoragesize});
@@ -1045,7 +1053,6 @@ setcookie('todolist','');
 $('.storage-bar2').css({'width':'0.00%'});
     issaved = true ;
 }
-      
     }
   }
   
@@ -1270,13 +1277,15 @@ $('.moresetbg').css({'display':'none'});
     issaved = false ;
   }
   function storageisfull() {
+	  if(storagefull < 1) {
   $('.alert').css({'display':'flex'});
   $('.alertbg').css({'display':'block'});
   setTimeout(function() {
     $('.alertbg').css({'opacity':'1'});
     $('.alert').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
   },90);
-
+	  }
+	  
   }
   document.addEventListener("paste", function (e){
     issaved = false ;
