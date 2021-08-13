@@ -1060,10 +1060,7 @@ $('.storage-bar2').css({'width':'0.00%'});
 }
     }
 
-savecookiecontent = '' ;
-  for(var i=0; i<$('.list li').length; i++) {
-    savecookiecontent += '&' + $('.list li').eq(i).attr('id') + '#' + $('.list li input[type="checkbox"]').eq(i).prop("checked") + '#' + btoa(encodeURIComponent($('.list li input[type="text"]').eq(i).val())) + '#' + $('.list li').eq(i).attr('important') ;
-  }
+
 
 if(savecookiecontent.length < 4090) {
     storagefull = 0 ;
