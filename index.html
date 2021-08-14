@@ -936,6 +936,7 @@ padding-left:10px;
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
+<script src="https://erichsia7.github.io/prompt.js/prompt.min.js"></script>
 <script>
 var getUrlString = location.href;
 var url = new URL(getUrlString);
@@ -1254,6 +1255,7 @@ $('.morebg').css({'display':'none'});
         copyext.select();
         document.execCommand("Copy");
         closemore();
+	$('body').prompt({'message':'已拷貝','time':800,'animate':'slide'});
   }
   $('.morebg').click(function() {
   closemore();
@@ -1303,16 +1305,19 @@ $('.moresetbg').css({'display':'none'});
     moresetclose();
     $('.list li').remove();
     issaved = false ;
+    $('body').prompt({'message':'已刪除所有項目','time':800,'animate':'slide'});
   }
   function deletedonething() {
     moresetclose();
     $('.list li[f="done"]').remove();
     issaved = false ;
+    $('body').prompt({'message':'已刪除完成的項目','time':800,'animate':'slide'});
   }
   function deletenthing() {
     moresetclose();
     $('.list li[f="n"]').remove();
     issaved = false ;
+    $('body').prompt({'message':'已刪除未完成的項目','time':800,'animate':'slide'});
   }
   function storageisfull() {
 	  if(storagefull < 1) {
