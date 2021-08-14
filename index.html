@@ -1249,6 +1249,7 @@ $('.morebg').css({'display':'none'});
     closemore();
     $('#' + delid).remove();
     issaved = false ;
+    $('body').prompt({'message':'已刪除項目','time':800,'animate':'slide'});
   }
   function copytext(copyid) {
         var copyext = $('#' + copyid + ' input[type="text"]') ;
