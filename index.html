@@ -1111,7 +1111,7 @@ else {
       }
       var rdid = getCookie('todolist').split('&')[i].split('#')[0] ;
       var trdid = "'" + rdid + "'";
-      $('.list').append('<li id="' + rdid + '" f="' + fstrtt + '" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '"><input type="checkbox" pid="' + rdid + '" ' + checkedsta + '><input type="text" value="' + decodeURIComponent(atob(getCookie('todolist').split('&')[i].split('#')[2])) + '"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
+      $('.list').append('<li id="' + rdid + '" f="' + fstrtt + '" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '" cookie-data="' + getCookie('todolist').split('&')[i] + '"><input type="checkbox" pid="' + rdid + '" ' + checkedsta + '><input type="text" value="' + decodeURIComponent(atob(getCookie('todolist').split('&')[i].split('#')[2])) + '"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
       $('#' + rdid).css({'transform':'scaleY(1)','opacity':'1'});
       
       ripple('.more[pid="' + rdid + '"]','var(--add-btn-color)','0.3',500,'true');
