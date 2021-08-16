@@ -1349,6 +1349,7 @@ $('.moreopt[g="state"]').html('狀態:未完成')
   var tpiid = '"' + piid + '"' ;
   $('.delete').attr('ripple-onclick','deletething(' + tpiid + ')');
   $('.copy_text').attr('ripple-onclick','copytext(' + tpiid + ')');
+  $('.share_this').attr('ripple-onclick','shareb(' + tpiid + ')');
 }
 function closemore() {
  $('#' + $('.morebox').attr('piid')).attr('important',$('#importantl').val()).attr('le',$('#importantl').val());
