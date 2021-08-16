@@ -1483,6 +1483,7 @@ var qrcode = new QRCode(document.querySelector('.share-qrcode-image') , {
 });
 var tpshiid = '"' + shareid + '"' ;
   $('.share-btn[g="coshli"]').attr('ripple-onclick','copysharelink(' + tpshiid + ')');
+  $('.share-btn[g="shmli"]').attr('ripple-onclick','sharelinkm(' + tpshiid + ')');
 }
 function sharelinkm(sharemid) {
   if (navigator.share) { 
@@ -1501,7 +1502,7 @@ function sharelinkm(sharemid) {
 function copysharelink(sharecid) {
 var copyText = 'https://erichsia7.github.io/todolist/share/?d=' + btoa($('#' + sharecid).attr('cookie-data')) ;
         var textArea = document.createElement("textarea");
-        textArea.value = copyText.textContent;
+        textArea.value = copyText;
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand("Copy");
