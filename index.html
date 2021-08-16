@@ -1486,7 +1486,7 @@ function sharelinkm(sharemid) {
   if (navigator.share) { 
    navigator.share({
       title: document.title,
-      text: '已分享的項目',
+      text: 'Todo List - 已分享的項目',
       url: 'https://erichsia7.github.io/todolist/share/?d=' + btoa($('#' + sharemid).attr('cookie-data'))
     }).then(() => {
       console.log('Thanks for sharing!');
