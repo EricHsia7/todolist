@@ -1496,6 +1496,15 @@ function sharelinkm(sharemid) {
         shareDialog.classList.add('is-open');
     }
 }
+function copysharelink(sharecid) {
+var copyText = 'https://erichsia7.github.io/todolist/share/?d=' + btoa($('#' + sharecid).attr('cookie-data')) ;
+        var textArea = document.createElement("textarea");
+        textArea.value = copyText.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("Copy");
+        textArea.remove();
+}
   function shareclose() {
     $('.sharebg').css({'opacity':'0'});
  $('.sharebox').css({'opacity':'0','transform':'translate(-50%,-50%) scale(0.8)'});
