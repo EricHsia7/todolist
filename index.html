@@ -1029,8 +1029,8 @@ padding-left:10px;
     <div class="share-qrcode-image">
     </div>
     <div class="share-btn-bar">
-    <div class="share-btn">複製連結</div>
-    <div class="share-btn" style="margin-left:10px;">分享連結</div>
+    <div class="share-btn" ripple-onclick="copysharelink()">複製連結</div>
+    <div class="share-btn" style="margin-left:10px;" ripple-onclick="sharelinkm()">分享連結</div>
     </div>
   </div>
   <div class="sharetitle">分享<div class="icon shareclose" ripple-onclick="shareclose()"></div></div>
@@ -1064,7 +1064,7 @@ var url_re = url.searchParams.get('re') ;
 var url_pwa = url.searchParams.get('pwa') ;
 var version = '87kj04q6' ;
   ripple('.buttom-bar-button','#000','0.3',1200,'true');
-  ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
+  ripple('.addf,.share-btn','var(--add-btn-color)','0.3',1200,'true');
   ripple('.moreclose,.moresetclose,.shareclose','var(--add-btn-color)','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text,.share_this','var(--add-btn-color)','0.3',500,'true');
@@ -1482,7 +1482,9 @@ var qrcode = new QRCode(document.querySelector('.share-qrcode-image') , {
     correctLevel : QRCode.CorrectLevel.H
 });
 }
+function sharelinkm() {
 
+}
   function shareclose() {
     $('.sharebg').css({'opacity':'0'});
  $('.sharebox').css({'opacity':'0','transform':'translate(-50%,-50%) scale(0.8)'});
