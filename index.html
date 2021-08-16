@@ -1029,7 +1029,7 @@ padding-left:10px;
     <div class="share-qrcode-image">
     </div>
     <div class="share-btn-bar">
-    <div class="share-btn" ripple-onclick="copysharelink()" g="coshli">複製連結</div>
+    <div class="share-btn" ripple-onclick="copysharelink()" g="coshli">拷貝連結</div>
     <div class="share-btn" style="margin-left:10px;" ripple-onclick="sharelinkm()" g="shmli">分享連結</div>
     </div>
   </div>
@@ -1507,6 +1507,7 @@ var copyText = 'https://erichsia7.github.io/todolist/share/?d=' + btoa($('#' + s
         textArea.select();
         document.execCommand("Copy");
         textArea.remove();
+	$('body').prompt({'message':'已拷貝連結','time':800,'animate':'slide'});
 }
   function shareclose() {
     $('.sharebg').css({'opacity':'0'});
