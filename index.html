@@ -1482,8 +1482,19 @@ var qrcode = new QRCode(document.querySelector('.share-qrcode-image') , {
     correctLevel : QRCode.CorrectLevel.H
 });
 }
-function sharelinkm() {
-
+function sharelinkm(sharemid) {
+  if (navigator.share) { 
+   navigator.share({
+      title: document.title,
+      text: '已分享的項目',
+      url: 'https://erichsia7.github.io/todolist/share/?d=' + btoa($('#' + sharemid).attr('cookie-data'))
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(console.error);
+    } else {
+        shareDialog.classList.add('is-open');
+    }
 }
   function shareclose() {
     $('.sharebg').css({'opacity':'0'});
@@ -1494,7 +1505,7 @@ $('.sharebg').css({'display':'none'});
   },300);
   }
   $('.sharebg').click(function() {
- shareclose();   
+ shareclose();
   });
 	
   document.addEventListener("paste", function (e){
