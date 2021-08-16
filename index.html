@@ -490,11 +490,11 @@ select[le="3"] {
   margin-left:5px;
 	-webkit-user-select: none;
   }
-  .copy_text {
-    padding:5px;
+  .copy_text,.share_this {
+  padding:5px;
   color:#333;
   background:rgba(0, 0, 0,0);
-		-webkit-user-select: none;
+ -webkit-user-select: none;
   }
   .flexrow {
     display: flex;
@@ -803,7 +803,7 @@ li[le="0"] input[type="checkbox"]:checked::after {
   border-bottom:1px #1f1f1f solid;
   color:#fff;
 }
-  .copy_text {
+  .copy_text,.share_this {
   color:#fff;
   }
 select[le="0"] {
@@ -911,7 +911,7 @@ padding-left:10px;
     <option value="3">非常重要</option>
   </select>
     </div>
-    <div class="moreopt flexrow">動作:<div class="copy_text">拷貝文字</div><div class="delete">刪除項目</div></div>
+    <div class="moreopt flexrow">動作:<div class="share_this">分享</div><div class="copy_text">拷貝文字</div><div class="delete">刪除項目</div></div>
   </div>
   <div class="moretitle">選項<div class="icon moreclose" ripple-onclick="closemore()"></div></div>
 </div>
@@ -962,7 +962,7 @@ var version = '87kj04q6' ;
   ripple('.addf','var(--add-btn-color)','0.3',1200,'true');
   ripple('.moreclose,.moresetclose','var(--add-btn-color)','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
-  ripple('.copy_text','var(--add-btn-color)','0.3',500,'true');
+  ripple('.copy_text,.share_this','var(--add-btn-color)','0.3',500,'true');
   ripple('.moreset','var(--add-btn-color)','0.3',500,'false');
   ripple('.moresetcontent .moresetopt','var(--add-btn-color)','0.3',1200,'true');
   ripple('.alert-btn','var(--add-btn-color)','0.3',500,'true');
