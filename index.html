@@ -697,6 +697,19 @@ width:80%;
   padding:5px;
 }
 	
+<div class="sharebg"></div>
+<div class="sharebox">
+  <div class="sharecontent">
+    <div class="share-qrcode-image">
+    </div>
+    <div class="share-btn-bar">
+    <div class="share-btn">複製連結</div>
+    <div class="share-btn" style="margin-left:10px;">分享連結</div>
+    </div>
+  </div>
+  <div class="sharetitle">分享<div class="icon shareclose" ripple-onclick="closeshare()"></div></div>
+</div>
+	
 	
 	
 	
@@ -1344,6 +1357,24 @@ $('.alertbg').css({'display':'none'});
   $('.alert').css({'display':'none'});
   },300);
   }
+
+function shareb(shareid) {
+$('.sharebg').css({'display':'block'});
+  $('.sharebox').css({'display':'block'});
+  setTimeout(function() {
+    $('.sharebg').css({'opacity':'1'});
+    $('.sharebox').css({'opacity':'1','transform':'translate(-50%,-50%) scale(1)'});
+  },1);
+document.querySelector('.share-qrcode-image').innerHTML = '';
+var qrcode = new QRCode(document.querySelector('.share-qrcode-image') , {
+    text: 'https://erichsia7.github.io/todolist/share/?d=' + btoa($('#' + shareid).attr('cookie-data')),
+    width: 512,
+    height: 512,
+    colorDark : "#000",
+    colorLight : "#fff",
+    correctLevel : QRCode.CorrectLevel.H
+});
+}
 	
   document.addEventListener("paste", function (e){
     issaved = false ;
