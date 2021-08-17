@@ -125,7 +125,7 @@ select[le="3"] {
     <div class="shareli" g="state"></div>
     <div class="shareli" g="important"></div>
   </div>
-  <div class="save">將此項目新增到此裝置</div>
+  <div class="save" ripple-onclick="savethis()">將此項目新增到此裝置</div>
 </div>
 <div class="title">已分享的項目</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -154,4 +154,7 @@ $('.shareli[g="important"]').prepend(
 );
 $("#importantl").val(data_important).attr("le", data_important);
   ripple('.save','#000','0.3',1200,'true');
+  function savethis() {
+    location.replace('https://erichsia7.github.io/todolist/?r=1&s=1&d=' + url.searchParams.get("d"));
+  }
 </script>
