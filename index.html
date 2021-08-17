@@ -1567,6 +1567,24 @@ var checkedstajj = '' ;
 var gtfid = "'" + data_id + "'";
 $('.list').append('<li id="' + data_id + '" f="' + fstrttjj + '" important="' + data_important + '" le="' + data_important + '"><input type="checkbox" pid="' + data_id + '" ' + checkedstajj + '><input type="text" value="' + data_content + '"><div class="icon more" pid="' + data_id + '" ripple-onclick="openmore(' + gtfid + ')"></div></li>');
 $('#' + data_id).css({'transform':'scaleY(1)','opacity':'1'});
+ripple('.more[pid="' + data_id + '"]','var(--add-btn-color)','0.3',500,'true');
+  
+  $('input[type="checkbox"]').click(function() {
+if($(this).prop("checked")) {
+$('#' + $(this).attr('pid')).attr('f','done');
+}
+  else {
+$('#' + $(this).attr('pid')).attr('f','n')
+}
+    issaved = false ;
+});
+  
+  issaved = false ;
+  $('input[type="text"]').keyup(function() {
+      issaved = false ;
+    });
+	
+	
 $('body').prompt({'message':'已新增分享的項目','time':800,'animate':'slide'});
 }
 </script>
