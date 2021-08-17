@@ -18,6 +18,10 @@
 <!--<link rel="manifest" href="https://erichsia7.github.io/todolist/manifest.json">-->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&display=swap');
+	  :root {
+	--add-btn-color:#000;
+	--bot-bar-col:#e3e3e3;
+}
   .title {
   position: fixed;
   top: 0px;
@@ -202,7 +206,7 @@ $('.shareli[g="important"]').prepend(
   '重要程度:<select name="importantl" id="importantl" value="1" disabled="disabled"><option value="0">普通</option><option value="1">次重要</option><option value="2">重要</option><option value="3">非常重要</option></select>'
 );
 $("#importantl").val(data_important).attr("le", data_important);
-  ripple('.save','#000','0.3',1200,'true');
+  ripple('.save','var(--add-btn-color)','0.3',1200,'true');
   function savethis() {
     location.replace('https://erichsia7.github.io/todolist/?r=1&s=1&d=' + url.searchParams.get("d"));
   }
