@@ -1065,6 +1065,8 @@ var url = new URL(getUrlString);
 var url_r = url.searchParams.get('r');
 var url_re = url.searchParams.get('re') ;
 var url_pwa = url.searchParams.get('pwa') ;
+var url_share = url.searchParams.get('s') ;
+var url_data = url.searchParams.get('d') ;
 var version = '87kj04q6' ;
   ripple('.buttom-bar-button','#000','0.3',1200,'true');
   ripple('.addf,.share-btn','var(--add-btn-color)','0.3',1200,'true');
@@ -1121,6 +1123,8 @@ genid5 += '-' + genid4 ;
 
 if(url_r === '1') {
 //history.pushState(null, null,'https://erichsia7.github.io/todolist/?r=0&re=' + url_re);
+
+
 }
 else {
 	
@@ -1213,7 +1217,7 @@ else {
   
   
   
-  
+  var printd = false ;
   function print() {
     if(getCookie('todolist') === '') {
       
@@ -1263,6 +1267,7 @@ todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2)
   $('#storage-title').html('儲存空間:' + todolistcookiestoragesize);
   $('.storage-bar2').css({'width':todolistcookiestoragesize});
   $('.list').scrollTop(getCookie('todolistscroll'));
+	  printd = true ;
 }
   
   
@@ -1543,7 +1548,9 @@ document.querySelector('.list').addEventListener('scroll', function(e) {
 document.querySelector('.list').onscroll = function(e) {
   setcookie('todolistscroll',document.querySelector('.list').scrollY);
 };
-
+if(url_r === '1' &&& url_s === '1') {
+$('body').prompt({'message':'已新增分享的項目','time':800,'animate':'slide'});
+}
 </script>
 <style>
    .bottom-bar {
