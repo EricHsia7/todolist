@@ -1565,8 +1565,7 @@ var checkedstajj = '' ;
         fstrttjj = 'done' ;
       }
 var gtfid = "'" + data_id + "'";
-$('.list').append('<li id="' + data_id + '" f="' + fstrttjj + '" important="' + data_important + '" le="' + data_important + '"><input type="checkbox" pid="' + data_id + '" ' + checkedstajj + '><input type="text"><div class="icon more" pid="' + data_id + '" ripple-onclick="openmore(' + gtfid + ')"></div></li>');
-
+$('.list').append('<li id="' + data_id + '" f="' + fstrttjj + '" important="' + data_important + '" le="' + data_important + '"><input type="checkbox" pid="' + data_id + '" ' + checkedstajj + '><input type="text" value="' + data_content + '"><div class="icon more" pid="' + data_id + '" ripple-onclick="openmore(' + gtfid + ')"></div></li>');
 $('body').prompt({'message':'已新增分享的項目','time':800,'animate':'slide'});
 }
 </script>
