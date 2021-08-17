@@ -1549,6 +1549,24 @@ document.querySelector('.list').onscroll = function(e) {
   setcookie('todolistscroll',document.querySelector('.list').scrollY);
 };
 if(url_r === '1' && url_share === '1') {
+var data = atob(url_data).split("#");
+var data_id = data[0];
+var data_state = data[1];
+var data_content = decodeURIComponent(atob(data[2]));
+var data_important = data[3];
+if(getCookie('todolist').indexOf(data_id) > -1) {
+data_id = genid('random') ;
+}
+
+var fstrttjj = 'n' ;
+var checkedstajj = '' ;
+      if(data_state === 'true') {
+        checkedstajj = 'checked' ;
+        fstrttjj = 'done' ;
+      }
+var gtfid = "'" + data_id + "'";
+$('.list').append('<li id="' + data_id + '" f="' + fstrttjj + '" important="' + data_important + '" le="' + data_important + '"><input type="checkbox" pid="' + data_id + '" ' + checkedstajj + '><input type="text"><div class="icon more" pid="' + data_id + '" ripple-onclick="openmore(' + gtfid + ')"></div></li>');
+
 $('body').prompt({'message':'已新增分享的項目','time':800,'animate':'slide'});
 }
 </script>
