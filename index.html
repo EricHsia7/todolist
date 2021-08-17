@@ -1584,6 +1584,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
 	
 	
 $('body').prompt({'message':'已新增分享的項目','time':800,'animate':'slide'});
+$('.content').scrollTop($('.content').innerHeight());
 history.pushState(null, null,'https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
 }
 </script>
