@@ -16,3 +16,140 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="defualt" />
 <!--<link rel="manifest" href="https://erichsia7.github.io/todolist/manifest.json">-->
+  <style>
+  .title {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px #e3e3e3 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 300;
+  -webkit-user-select: none;
+}
+.sharecontent {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: calc(100%);
+  background: #fff;
+  overflow: scroll;
+  -webkit-user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.sharecard {
+  margin-top: 45px;
+  width: 100%;
+  height: calc(100% - 145px);
+  border-radius: 15px;
+  overflow: scroll;
+}
+.sharecard .h5 {
+  font-size: 20px;
+  height: calc(100% - 51px * 4 - 1px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shareli {
+  position: relative;
+  width: calc(100% - 10px);
+  height: 50px;
+  border-top: 1px #f5f5f5 solid;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 500;
+  -webkit-user-select: none;
+}
+.save {
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.05);
+  width: 180px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 12px;
+  -webkit-user-select: none;
+  margin-top: 10px;
+}
+
+select {
+  -webkit-appearance: none;
+  height: 25px;
+  width: 70px;
+  border-radius: 8px;
+  -webkit-user-select: none;
+}
+select[le="0"] {
+  color: #000;
+  border-color: #000;
+  background: rgba(255, 255, 255, 0);
+}
+select[le="1"] {
+  color: #2a9d8f;
+  border-color: #2a9d8f;
+  background: rgba(42, 157, 143, 0.15);
+}
+select[le="2"] {
+  color: #f4a261;
+  border-color: #f4a261;
+  background: rgba(244, 162, 97, 0.15);
+}
+select[le="3"] {
+  color: #e63946;
+  border-color: #e63946;
+  background: rgba(230, 57, 70, 0.15);
+}
+  </style>
+</head>
+<div class="sharecontent">
+  <div class="sharecard">
+    <div class="h5"></div>
+    <div class="shareli" g="id"></div>
+    <div class="shareli" g="length"></div>
+    <div class="shareli" g="state"></div>
+    <div class="shareli" g="important"></div>
+  </div>
+  <div class="save">將此項目新增到此裝置</div>
+</div>
+<div class="title">已分享的項目</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
+<script>
+//var getUrlString =
+  "https://erichsia7.github.io/todolist/share/?d=ZWhrbG93b2MjZmFsc2UjVkc5a2J5VXlNRXhwYzNRPSMw";
+var getUrlString = location.href;
+var url = new URL(getUrlString);
+var data = atob(url.searchParams.get("d")).split("#");
+var data_id = data[0];
+var data_state = data[1];
+var data_content = decodeURIComponent(atob(data[2]));
+var data_important = data[3];
+if (data_state === "true") {
+  data_state = "已完成";
+} else {
+  data_state = "未完成";
+}
+$('.shareli[g="id"]').html("ID:" + data_id);
+$(".h5").html(data_content);
+$('.shareli[g="length"]').html("字數:" + data_content.length);
+$('.shareli[g="state"]').html("狀態:" + data_state);
+$('.shareli[g="important"]').prepend(
+  '重要程度:<select name="importantl" id="importantl" value="1" disabled="disabled"><option value="0">普通</option><option value="1">次重要</option><option value="2">重要</option><option value="3">非常重要</option></select>'
+);
+$("#importantl").val(data_important).attr("le", data_important);
+</script>
