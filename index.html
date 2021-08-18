@@ -1616,6 +1616,9 @@ document.querySelector('.list').addEventListener('scroll', function(e) {
 document.querySelector('.list').onscroll = function(e) {
   setcookie('todolistscroll',document.querySelector('.list').scrollY);
 };
+addEventListener("touchend",function(e) {
+setcookie('todolistscroll',document.querySelector('.list').scrollY);
+});
 if(url_r === '1' && url_share === '1') {
 var data = atob(url_data).split("#");
 var data_id = data[0];
