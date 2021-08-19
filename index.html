@@ -1457,6 +1457,14 @@ $('.morebg').css({'display':'none'});
         document.execCommand("Copy");
         closemore();
 	$('body').prompt({'message':'已拷貝','time':800,'animate':'slide'});
+        gtag('event', 'list', {
+    'event_category': 'copytext',
+    'event_label': sha256($('#' + copyid + ' input[type="text"]').val()),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
+
+	  
   }
   $('.morebg').click(function() {
   closemore();
