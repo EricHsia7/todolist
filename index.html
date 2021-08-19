@@ -1404,7 +1404,7 @@ $('#' + $(this).attr('pid')).attr('f','n')
 });
 function openmore(piid) {
 	
-gtag('event', 'list', {
+gtag('event', 'openmore', {
     'event_category': 'openmore',
     'event_label': sha256($('#' + piid + ' input[type="text"]').val()),
     'transport_type': 'beacon',
@@ -1457,7 +1457,7 @@ $('.morebg').css({'display':'none'});
         document.execCommand("Copy");
         closemore();
 	$('body').prompt({'message':'已拷貝','time':800,'animate':'slide'});
-        gtag('event', 'list', {
+        gtag('event', 'copytext', {
     'event_category': 'copytext',
     'event_label': sha256($('#' + copyid + ' input[type="text"]').val()),
     'transport_type': 'beacon',
