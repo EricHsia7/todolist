@@ -1403,6 +1403,14 @@ $('#' + $(this).attr('pid')).attr('f','n')
   issaved = false ;
 });
 function openmore(piid) {
+	
+gtag('event', 'list', {
+    'event_category': 'openmore',
+    'event_label': sha256($('#' + piid + ' input[type="text"]').val()),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
+	
   $('.morebg').css({'display':'block'});
   $('.morebox').css({'display':'block'}).attr('piid',piid);
   setTimeout(function() {
