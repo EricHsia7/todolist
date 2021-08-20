@@ -1446,6 +1446,12 @@ $('.morebg').css({'display':'none'});
   $(this).attr('le',$(this).val());
   });
   function deletething(delid) {
+    gtag('event', 'delete_one', {
+    'event_category': 'delete_one',
+    'event_label': sha256($('#' + delid + ' input[type="text"]').val()),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
     closemore();
     $('#' + delid).remove();
     issaved = false ;
