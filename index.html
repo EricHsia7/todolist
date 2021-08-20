@@ -1743,8 +1743,10 @@ var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRST
                 var usercountidrandomNumber = Math.floor(Math.random() * usercountidchars.length);
                 usercountid += usercountidchars.substring(usercountidrandomNumber, usercountidrandomNumber + 1);
             }
-
 setcookie('todolist_user',usercountid);
+}
+else {
+setcookie('todolist_user',getCookie('todolist_user'));
 }
 }
 usercount();
