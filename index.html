@@ -1675,6 +1675,12 @@ setcookie('todolistscroll',$('.list').scrollTop());
 });
 */
 if(url_r === '1' && url_share === '1') {
+gtag('event', 'share_add', {
+    'event_category': 'share_add',
+    'event_label': sha256(atob(url_data)),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
 var data = atob(url_data).split("#");
 var data_id = data[0];
 var data_state = data[1];
