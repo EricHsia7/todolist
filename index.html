@@ -1734,6 +1734,20 @@ $('body').prompt({'message':'已新增分享的項目','time':800,'animate':'sli
 $('.content').scrollTop($('.content').innerHeight());
 history.pushState(null, null,'https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
 }
+
+function usercount() {
+if(getCookie('todolist_user') === '') {
+var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
+            var usercountid = "";
+            for (var i = 0; i < 256; i++) {
+                var usercountidrandomNumber = Math.floor(Math.random() * usercountidchars.length);
+                usercountid += usercountidchars.substring(usercountidrandomNumber, usercountidrandomNumber + 1);
+            }
+
+setcookie('todolist_user',usercountid);
+}
+}
+usercount();
 </script>
 <style>
    .bottom-bar {
