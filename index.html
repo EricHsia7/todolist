@@ -1372,6 +1372,12 @@ $('#' + $(this).attr('pid')).attr('f','n');
       issaved = false ;
     });
   
+gtag('event', 'add', {
+    'event_category': 'add',
+    'event_label': rdid + ',' + genid('time'),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
 }
 function tab(tabeq) {
   if(tabeq===0) {
