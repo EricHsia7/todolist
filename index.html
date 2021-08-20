@@ -1304,22 +1304,9 @@ else {
       $('input[type="checkbox"]').click(function() {
 if($(this).prop("checked")) {
 $('#' + $(this).attr('pid')).attr('f','done');
-	gtag('event', 'checkbox', {
-    'event_category': 'done',
-    'event_label': sha256($('#' + $(this).attr('pid')).val()),
-    'transport_type': 'beacon',
-    'event_callback': function(){ }
-  });
 }
   else {
 $('#' + $(this).attr('pid')).attr('f','n');
-	  gtag('event', 'checkbox', {
-    'event_category': 'undone',
-    'event_label': sha256($('#' + $(this).attr('pid')).val()),
-    'transport_type': 'beacon',
-    'event_callback': function(){ }
-  });
-
 }
         issaved = false ;
 
@@ -1369,21 +1356,9 @@ setTimeout(function() {
   $('input[type="checkbox"]').click(function() {
 if($(this).prop("checked")) {
 $('#' + $(this).attr('pid')).attr('f','done');
-gtag('event', 'checkbox', {
-    'event_category': 'done',
-    'event_label': sha256($('#' + $(this).attr('pid')).val()),
-    'transport_type': 'beacon',
-    'event_callback': function(){ }
-  });
 }
   else {
 $('#' + $(this).attr('pid')).attr('f','n');
-gtag('event', 'checkbox', {
-    'event_category': 'undone',
-    'event_label': sha256($('#' + $(this).attr('pid')).val()),
-    'transport_type': 'beacon',
-    'event_callback': function(){ }
-  });
 }
     issaved = false ;
 });
@@ -1712,25 +1687,9 @@ ripple('.more[pid="' + data_id + '"]','var(--add-btn-color)','0.3',500,'true');
 
 if($(this).prop("checked")) {
 $('#' + $(this).attr('pid')).attr('f','done');
-	
-gtag('event', 'checkbox', {
-    'event_category': 'done',
-    'event_label': sha256($('#' + $(this).attr('pid')).val()),
-    'transport_type': 'beacon',
-    'event_callback': function(){ }
-  });
-	
 }
   else {
-$('#' + $(this).attr('pid')).attr('f','n');
-
-gtag('event', 'checkbox', {
-    'event_category': 'undone',
-    'event_label': sha256($('#' + $(this).attr('pid')).val()),
-    'transport_type': 'beacon',
-    'event_callback': function(){ }
-  });
-	  
+$('#' + $(this).attr('pid')).attr('f','n'); 
 }
 
     issaved = false ;
