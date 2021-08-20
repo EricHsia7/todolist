@@ -1201,7 +1201,7 @@ function relooad() {
 	var reloaduuidfft = genid('uuid') ;
 	gtag('event', 'reload', {
     'event_category': 'reload',
-    'event_label': reloaduuidfft,
+    'event_label': url_re + ':' + reloaduuidfft,
     'transport_type': 'beacon',
     'event_callback': function(){ 
 	    
