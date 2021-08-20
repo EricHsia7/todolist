@@ -1684,12 +1684,30 @@ $('#' + data_id).css({'transform':'scaleY(1)','opacity':'1'});
 ripple('.more[pid="' + data_id + '"]','var(--add-btn-color)','0.3',500,'true');
   
   $('input[type="checkbox"]').click(function() {
+
 if($(this).prop("checked")) {
 $('#' + $(this).attr('pid')).attr('f','done');
+	
+gtag('event', 'checkbox', {
+    'event_category': 'done',
+    'event_label': sha256($('#' + $(this).attr('pid')).val()),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
+	
 }
   else {
-$('#' + $(this).attr('pid')).attr('f','n')
+$('#' + $(this).attr('pid')).attr('f','n');
+
+gtag('event', 'checkbox', {
+    'event_category': 'undone',
+    'event_label': sha256($('#' + $(this).attr('pid')).val()),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
+	  
 }
+
     issaved = false ;
 });
   
