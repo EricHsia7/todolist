@@ -1513,8 +1513,8 @@ $('.moresetbg').css({'display':'none'});
  moresetclose();   
   });
   function deleteallthing() {
-    gtag('event', 'delete', {
-    'event_category': 'all',
+    gtag('event', 'delete_all', {
+    'event_category': 'delete_all',
     'event_label': $('.list li').length,
     'transport_type': 'beacon',
     'event_callback': function(){ }
@@ -1525,8 +1525,8 @@ $('.moresetbg').css({'display':'none'});
     $('body').prompt({'message':'已刪除所有項目','time':800,'animate':'slide'});
   }
   function deletedonething() {
-    gtag('event', 'delete', {
-    'event_category': 'done',
+    gtag('event', 'delete_done', {
+    'event_category': 'delete_done',
     'event_label': $('.list li[f="done"]').length,
     'transport_type': 'beacon',
     'event_callback': function(){ }
@@ -1537,8 +1537,8 @@ $('.moresetbg').css({'display':'none'});
     $('body').prompt({'message':'已刪除完成的項目','time':800,'animate':'slide'});
   }
   function deletenthing() {
-    gtag('event', 'delete', {
-    'event_category': 'undone',
+    gtag('event', 'delete_undone', {
+    'event_category': 'delete_undone',
     'event_label': $('.list li[f="n"]').length,
     'transport_type': 'beacon',
     'event_callback': function(){ }
