@@ -1194,15 +1194,26 @@ else {
 	location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
 	}
 	
+	
 }
 
 function relooad() {
-	if(url_pwa === "1") {
-	location.replace('https://erichsia7.github.io/todolist/?pwa=1&r=1&re=' + genid('uuid'));
+	var reloaduuidfft = genid('uuid') ;
+	gtag('event', 'reload', {
+    'event_category': 'reload',
+    'event_label': reloaduuidfft,
+    'transport_type': 'beacon',
+    'event_callback': function(){ 
+	    
+    if(url_pwa === "1") {
+	location.replace('https://erichsia7.github.io/todolist/?pwa=1&r=1&re=' + reloaduuidfft);
 	}
 	else {
-	location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
+	location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + reloaduuidfft);
 	}
+	    
+    }
+  });
 }
 	
 function setcookie(cookiename,cookievalue) {
