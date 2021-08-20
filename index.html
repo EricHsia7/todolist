@@ -1513,18 +1513,36 @@ $('.moresetbg').css({'display':'none'});
  moresetclose();   
   });
   function deleteallthing() {
+    gtag('event', 'delete', {
+    'event_category': 'all',
+    'event_label': $('.list li').length,
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
     moresetclose();
     $('.list li').remove();
     issaved = false ;
     $('body').prompt({'message':'已刪除所有項目','time':800,'animate':'slide'});
   }
   function deletedonething() {
+    gtag('event', 'delete', {
+    'event_category': 'done',
+    'event_label': $('.list li[f="done"]').length,
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
     moresetclose();
     $('.list li[f="done"]').remove();
     issaved = false ;
     $('body').prompt({'message':'已刪除完成的項目','time':800,'animate':'slide'});
   }
   function deletenthing() {
+    gtag('event', 'delete', {
+    'event_category': 'undone',
+    'event_label': $('.list li[f="n"]').length,
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
     moresetclose();
     $('.list li[f="n"]').remove();
     issaved = false ;
@@ -1532,6 +1550,12 @@ $('.moresetbg').css({'display':'none'});
   }
   function storageisfull() {
 	  if(storagefull < 1) {
+	gtag('event', 'storageisfull', {
+    'event_category': 'storageisfull',
+    'event_label': $('.list li').length + ',' + getCookie('todolist').length,
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
   $('.alert').css({'display':'flex'});
   $('.alertbg').css({'display':'block'});
   setTimeout(function() {
@@ -1553,6 +1577,12 @@ $('.alertbg').css({'display':'none'});
   }
 
 function shareb(shareid) {
+gtag('event', 'share', {
+    'event_category': 'share',
+    'event_label': sha256($('#' + shareid).attr('cookie-data')),
+    'transport_type': 'beacon',
+    'event_callback': function(){ }
+  });
   closemore();
 $('.sharebg').css({'display':'block'});
   $('.sharebox').css({'display':'block'});
