@@ -1743,10 +1743,10 @@ history.pushState(null, null,'https://erichsia7.github.io/todolist/?r=1&re=' + g
 }
 
 function usercount() {
-if(getCookie('todolist_user') === '') {
+if(getCookie('todolist_user') === '' || getCookie('todolist_user').length > 101) {
 var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
             var usercountid = "";
-            for (var i = 0; i < 128; i++) {
+            for (var i = 0; i < 100; i++) {
                 var usercountidrandomNumber = Math.floor(Math.random() * usercountidchars.length);
                 usercountid += usercountidchars.substring(usercountidrandomNumber, usercountidrandomNumber + 1);
             }
