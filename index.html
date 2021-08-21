@@ -1746,7 +1746,7 @@ function usercount() {
 if(getCookie('todolist_user') === '') {
 var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
             var usercountid = "";
-            for (var i = 0; i < 256; i++) {
+            for (var i = 0; i < 128; i++) {
                 var usercountidrandomNumber = Math.floor(Math.random() * usercountidchars.length);
                 usercountid += usercountidchars.substring(usercountidrandomNumber, usercountidrandomNumber + 1);
             }
