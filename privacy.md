@@ -14,3 +14,4 @@
 ## 附註
 * 若您開使使用即表示您同意蒐集資料
 * 若您不同意蒐集資料請立即停止使用
+* 使用Google Analytics，請參閱[Google隱私權政策](https://policies.google.com/privacy?hl=zh_TW)
