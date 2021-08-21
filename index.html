@@ -1082,6 +1082,7 @@ padding-left:10px;
     <div class="moresetopt" g="storagesize"></div>
     <div class="moresetopt" g="list_quantity"></div>
     <div class="moresetopt" g="githublink" ripple-onclick="window.open('https://github.com/EricHsia7/todolist')">Github</div>
+    <div class="moresetopt" g="user_count_id">工作階段ID:</div>
   </div>
   <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div></div>
 </div>
@@ -1515,6 +1516,8 @@ $('.morebg').css({'display':'none'});
 	  todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
   $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize);
   $('.moresetopt[g="list_quantity"]').html('項目數量:' + $('.list li').length);
+  $('.moresetopt[g="user_count_id"]').html('工作階段ID:' + getCookie('todolist_user'));
+
 	  
   $('.moresetbg').css({'display':'block'});
   $('.moresetbox').css({'display':'block'});
