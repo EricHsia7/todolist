@@ -9,3 +9,5 @@
 ## 蒐集的方法
 * Google Analytics
 * Cookies
+## 資料儲存方法
+* Cookies
