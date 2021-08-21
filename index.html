@@ -1755,12 +1755,16 @@ setcookie('todolist_user',usercountid);
 else {
 setcookie('todolist_user',getCookie('todolist_user'));
 }
+
+if(url_r === '1') {
 gtag('event', 'user_count_e', {
     'event_category': 'user_count_e',
     'event_label': getCookie('todolist_user'),
     'transport_type': 'beacon',
     'event_callback': function(){ }
   });
+}
+
 }
 usercount();
 </script>
