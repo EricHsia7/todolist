@@ -1797,9 +1797,13 @@ gtag('event', 'user_count_e', {
 
 }
 usercount();
+if(getCookie('privacyhint') === '1') {
+$('.hint,.hint-c').remove();
+}
 setTimeout(function() {
  $('.hint,.hint-c').remove();
-},1500);
+ setcookie('privacyhint','1');
+},2000);
 </script>
 <style>
    .bottom-bar {
