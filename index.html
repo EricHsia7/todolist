@@ -112,6 +112,11 @@ content:'\e001';
 content:'\e8b6';
 -webkit-user-select: none;
 }
+.privacy {
+content:'\ef3d';
+-webkit-user-select: none;
+}
+	
 	
   .moreset::after {
     content:'\e8b8';
@@ -1052,7 +1057,7 @@ padding-left:10px;
 	
 </div>
 
-  <div class="title"><div class="icon sync" id="syncst" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;left:7.5px;transform:translateY(-50%)"></div>Todo List<div class="icon moreset" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)" ripple-onclick="moreset()"></div></div>
+  <div class="title"><div class="icon sync" id="syncst" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;left:7.5px;transform:translateY(-50%)"></div>Todo List<div class="icon privacy" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:45px;transform:translateY(-50%)" ripple-onclick="privacylink()"></div>   <div class="icon moreset" style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)" ripple-onclick="moreset()"></div></div>
 
 <div class="morebg"></div>
 <div class="morebox">
@@ -1140,7 +1145,7 @@ var version = '87kj04q6' ;
   ripple('.moreclose,.moresetclose,.shareclose','var(--add-btn-color)','0.3',500,'true');
   ripple('.delete','#E76F51','0.3',500,'true');
   ripple('.copy_text,.share_this','var(--add-btn-color)','0.3',500,'true');
-  ripple('.moreset','var(--add-btn-color)','0.3',500,'false');
+  ripple('.moreset,.privacy','var(--add-btn-color)','0.3',500,'false');
   ripple('.moresetcontent .moresetopt','var(--add-btn-color)','0.3',1200,'true');
   ripple('.alert-btn','var(--add-btn-color)','0.3',500,'true');
 function genid(mode) {
@@ -1742,7 +1747,9 @@ $('body').prompt({'message':'已新增分享的項目','time':800,'animate':'sli
 $('.content').scrollTop($('.content').innerHeight());
 history.pushState(null, null,'https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
 }
-
+function privacylink() {
+  window.open('https://github.com/EricHsia7/todolist/blob/main/privacy.md')
+}
 function usercount() {
 if(getCookie('todolist_user') === '' || getCookie('todolist_user').length > 65) {
 var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
