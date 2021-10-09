@@ -1554,7 +1554,7 @@ $('.morebg').css({'display':'none'});
 	  todolistcookiestoragesize = ((getCookie('todolist').length/4090)*100).toFixed(2) + '%' ;
   $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize);
   $('.moresetopt[g="list_quantity"]').html('項目數量:' + $('.list li').length);
-  $('.moresetopt[g="user_count_id"]').html('工作階段ID:' + getCookie('todolist_user'));
+  $('.moresetopt[g="user_count_id"]').html('工作階段ID:' + localStorage.getItem('todolist_user'));
 
 	  
   $('.moresetbg').css({'display':'block'});
