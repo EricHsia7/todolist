@@ -1780,23 +1780,24 @@ function privacylink() {
 }
 
 function usercount() {
-if(getCookie('todolist_user') === '' || getCookie('todolist_user').length > 65) {
+if(localStorage.getItem('todolist_user') === null) {
 var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
             var usercountid = "";
             for (var i = 0; i < 64; i++) {
                 var usercountidrandomNumber = Math.floor(Math.random() * usercountidchars.length);
                 usercountid += usercountidchars.substring(usercountidrandomNumber, usercountidrandomNumber + 1);
             }
-setcookie('todolist_user',usercountid);
+//setcookie('todolist_user',usercountid);
+localStorage.setItem('todolist_user', usercountid);
 }
 else {
-setcookie('todolist_user',getCookie('todolist_user'));
+//setcookie('todolist_user',getCookie('todolist_user'));
 }
 
 if(url_r === '1') {
 gtag('event', 'user_count_e', {
     'event_category': 'user_count_e',
-    'event_label': getCookie('todolist_user'),
+    'event_label': localStorage.getItem('todolist_user'),
     'transport_type': 'beacon',
     'event_callback': function(){ }
   });
