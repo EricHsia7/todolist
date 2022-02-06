@@ -15,6 +15,7 @@
 <link href="pwaicon/512x512.png" sizes="512x512" rel="apple-touch-icon-precomposed" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="defualt" />
+<meta name="theme-color" content="#fff">
 <link rel="manifest" href="manifest.json">
 <style>
 * {outline:none; -webkit-tap-highlight-color:rgba(0,0,0,0);}
@@ -1254,7 +1255,34 @@ function relooad() {
     }
   });
 }
-	
+
+
+function setthemecol(hexcolsjs,delaytimems) {
+  setTimeout(function() {
+  $('meta[name="theme-color"]').attr('content',hexcolsjs);
+  },delaytimems);
+}
+function darkmodehexcol() {
+if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  return '#1a1a1a'
+}
+else {
+return '#fff'
+}
+}
+
+let darkmodematched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+var darkmodematchedstr = 'undefined' ;
+if(darkmodematched) {
+  darkmodematchedstr = 'true' ;
+  setthemecol('#1a1a1a',1)
+}
+else {
+darkmodematchedstr = 'false' ;
+}
+
+
+
 function setcookie(cookiename,cookievalue) {
 document.cookie = cookiename + '=' + cookievalue + '; max-age='+60*60*24*30;
 }
