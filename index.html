@@ -1264,7 +1264,7 @@ function setthemecol(hexcolsjs,delaytimems) {
 }
 function darkmodehexcol() {
 if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  return '#1a1a1a'
+  return '#000'
 }
 else {
 return '#fff'
@@ -1275,7 +1275,7 @@ let darkmodematched = window.matchMedia('(prefers-color-scheme: dark)').matches;
 var darkmodematchedstr = 'undefined' ;
 if(darkmodematched) {
   darkmodematchedstr = 'true' ;
-  setthemecol('#1a1a1a',1)
+  setthemecol('#000',1)
 }
 else {
 darkmodematchedstr = 'false' ;
