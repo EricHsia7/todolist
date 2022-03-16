@@ -179,7 +179,21 @@ align-items: center;
   font-size:35px;
   font-family: 'Noto Sans TC', sans-serif;
   font-weight:700;
-  background:#000;
+  background:#fff;
+}
+.ti[d="0"] {
+  background:#777
+}
+.ti[d="1"] {
+  background:#fff
+}
+.sr {
+  position:absolute;
+  bottom:70px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:20px;
+  font-weight:400;
 }
 .list {
   margin-top:45px;
@@ -1042,6 +1056,10 @@ float:top;
 padding-left:10px;
 }
 	.content {
+	width:calc(100% - 33%);
+	left:33%;
+	}
+.ti {
 	width:calc(100% - 33%);
 	left:33%;
 	}
