@@ -171,7 +171,7 @@ content:'\e1db';
   left:0px;
   width:100%;
   height:100%;
-  color:#fff;
+  color:#000;
   display: none;
 justify-content: center;
 align-items: center;
@@ -194,6 +194,7 @@ align-items: center;
   transform:translateX(-50%);
   font-size:20px;
   font-weight:400;
+  color:#888;
 }
 .list {
   margin-top:45px;
@@ -926,6 +927,15 @@ width:80%;
 	
 	
 	@media (prefers-color-scheme: dark) {
+.ti {
+background:#000
+}
+	.ti[d="0"] {
+  background:#333
+}
+.ti[d="1"] {
+  background:#000
+}
 		.hint,.hint-c {
                 background:#121212;
 		color:#fff;
