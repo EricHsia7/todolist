@@ -1740,6 +1740,79 @@ document.addEventListener("cut", function (e){
 document.addEventListener("selectionchange", function (e){
     issaved = false ;
   });
+
+var ti,rt,ko,ee ;
+var lo = 0
+var ld = 0 ;
+function initialize_cl() {
+  ti = new Date().getTime()
+  rt = new Date().getTime()
+  lo = 0
+}
+function tm() {
+  rt = new Date().getTime();
+}
+
+function stop_cl() {
+  clearInterval(ko)
+  clearInterval(ee)
+}
+function st_cl() {
+  if(ld === 0) {
+    lo+=new Date().getTime()-rt
+  }
+  else {
+    ld = 0
+  }
+  tm()
+  ko = setInterval(tm,100)
+}
+function sectomise(sec) {
+  minu = (sec-(sec % 60))/60
+  sece = sec % 60
+  if(minu < 10) {
+    minu = '0' + minu
+  }
+  if(sece < 10) {
+    sece = '0' + sece
+  }
+  return minu + ':' + sece
+}
+var qd = 30*60 //work
+var ret = 5*60 //reset
+function calcstep(sec) {
+  step = (sec-(sec % (qd+ret)))/(qd+ret)
+  thrett = (1+step)*qd+(ret*step)
+  nxrett = (1+step)*qd+(ret*(step+1))
+  if(sec >= thrett && sec <= nxrett) {
+    return {'s':'休息','t':sectomise(nxrett-sec),'c':0}
+  }
+  else {
+    return {'s':'專注','t':sectomise(thrett-sec),'c':1}
+  }
+}
+function stx() {
+  var nwst = calcstep(Math.floor((rt-ti-lo)/1000))
+ $('.ti').html('<div class="t">' + nwst.t + '</div><div class="sr">' + nwst.s + '</div>').attr('d',nwst.c)
+}
+
+
+
+/*
+$('.btn[g="st"]').click(function() {
+  initialize_cl()
+  st_cl()
+  ee = setInterval(stx,100)
+  $('.ti').css({'display':'flex'})
+})
+$('.btn[g="stp"]').click(function() {
+  stop_cl()
+  
+})
+
+$('.btn[g="st"]').click()
+*/
+
 /*
 $('.list').scroll(function() {
   setcookie('todolistscroll',$('.list').scrollTop());
