@@ -92,6 +92,11 @@ background:#fff;
   content:'\e876';
   -webkit-user-select: none;
 }
+.clooicon::after {
+  content:'\e8b5';
+  -webkit-user-select: none;
+}
+
 .addicon::after {
   content:'\e145';
 -webkit-user-select: none;
@@ -1067,7 +1072,15 @@ padding-left:10px;
       已完成
     </span>
   </div>
+  
+  <div class="buttom-bar-button" ronclick="tab(3)">
+    <div class="icon clooicon"></div>
+    <span>
+      番茄鐘
+    </span>
+  </div>
 	
+
 <div class="storage-box">
   <div class="icon storage"></div>
   <div class="storage-title-and-bar">
@@ -1469,7 +1482,7 @@ $('#thingstyle').html('li[f="n"] {display:none;}');
 }
 if(tabeq===3) {
 //search
-$('#thingstyle').html('li[f="j"] {display:none;}');
+
 }
 }
 $('.buttom-bar-button').click(function() {
