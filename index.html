@@ -1217,6 +1217,9 @@ var url_pwa = url.searchParams.get('pwa') ;
 var url_share = url.searchParams.get('s') ;
 var url_data = url.searchParams.get('d') ;
 var version = '87kj04q6' ;
+var ti,rt,ko,ee ;
+var lo = 0
+var ld = 0 ;
   ripple('.buttom-bar-button','#000','0.3',1200,'true');
   ripple('.addf,.share-btn','var(--add-btn-color)','0.3',1200,'true');
   ripple('.moreclose,.moresetclose,.shareclose','var(--add-btn-color)','0.3',500,'true');
@@ -1522,6 +1525,7 @@ if(tabeq===3) {
 //search
 $('.ti').css({'display':'flex'});
 $('#thingstyle').html('li[f="d"] {display:none;}');
+st_cl()
 }
 }
 $('.buttom-bar-button').click(function() {
@@ -1793,9 +1797,7 @@ document.addEventListener("selectionchange", function (e){
     issaved = false ;
   });
 
-var ti,rt,ko,ee ;
-var lo = 0
-var ld = 0 ;
+
 function initialize_cl() {
   ti = new Date().getTime()
   rt = new Date().getTime()
@@ -1848,7 +1850,7 @@ function stx() {
  $('.ti').html('<div class="t">' + nwst.t + '</div><div class="sr">' + nwst.s + '</div>').attr('d',nwst.c)
 }
 
-
+initialize_cl()
 
 /*
 $('.btn[g="st"]').click(function() {
