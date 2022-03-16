@@ -1518,6 +1518,8 @@ gtag('event', 'add', {
     'event_callback': function(){ }
   });
 }
+initialize_cl()
+
 function tab(tabeq) {
   if(tabeq===0) {
 $('.ti').css({'display':'none'});
@@ -1535,7 +1537,9 @@ if(tabeq===3) {
 //search
 $('.ti').css({'display':'flex'});
 $('#thingstyle').html('li[f="d"] {display:none;}');
-st_cl()
+  
+  st_cl()
+  ee = setInterval(stx,100)
 }
 }
 $('.buttom-bar-button').click(function() {
@@ -1860,7 +1864,7 @@ function stx() {
  $('.ti').html('<div class="t">' + nwst.t + '</div><div class="sr">' + nwst.s + '</div>').attr('d',nwst.c)
 }
 
-initialize_cl()
+
 
 /*
 $('.btn[g="st"]').click(function() {
