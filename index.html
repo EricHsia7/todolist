@@ -1847,8 +1847,8 @@ function sectomise(sec) {
   }
   return minu + ':' + sece
 }
-var qd = 30*60 //work
-var ret = 5*60 //reset
+var qd = 10 //work
+var ret = 5 //reset
 function calcstep(sec) {
   step = (sec-(sec % (qd+ret)))/(qd+ret)
   thrett = (1+step)*qd+(ret*step)
