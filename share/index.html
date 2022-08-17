@@ -1,170 +1,192 @@
 <head>
-<meta charset="UTF-8">
-<title>Todo List - 已分享的項目</title>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFX3Z1G178"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="UTF-8">
+  <title>Todo List - 已分享的項目</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFX3Z1G178"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-ZFX3Z1G178');
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
-<link href="https://erichsia7.github.io/todolist/pwaicon/512x512.png" sizes="512x512" rel="apple-touch-icon-precomposed" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="defualt" />
-<!--<link rel="manifest" href="https://erichsia7.github.io/todolist/manifest.json">-->
+    gtag('config', 'G-ZFX3Z1G178');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+  <link href="https://erichsia7.github.io/todolist/pwaicon/512x512.png" sizes="512x512"
+    rel="apple-touch-icon-precomposed" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="defualt" />
+  <!--<link rel="manifest" href="https://erichsia7.github.io/todolist/manifest.json">-->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500&display=swap');
-	  :root {
-	--add-btn-color:#000;
-	--bot-bar-col:#e3e3e3;
-}
-  .title {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.6);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px #e3e3e3 solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 300;
-  -webkit-user-select: none;
-}
-.sharecontent {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: calc(100%);
-  background: #fff;
-  overflow: hidden;
-  -webkit-user-select: none;
-  /*display: flex;
+
+    :root {
+      --add-btn-color: #000;
+      --bot-bar-col: #e3e3e3;
+    }
+
+    .title {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.6);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px #e3e3e3 solid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 300;
+      -webkit-user-select: none;
+    }
+
+    .sharecontent {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: calc(100%);
+      background: #fff;
+      overflow: hidden;
+      -webkit-user-select: none;
+      /*display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;*/
-}
-.sharecard {
-  margin-top: 45px;
-  width: 100%;
-  height: calc(100% - 120px);
-  border-radius: 0px;
-  overflow: scroll;
-}
-.sharecard .h5 {
-  font-size: 20px;
-  width:calc(100% - 40px);
-  min-height: calc(100% - 51px * 4 - 1px - 40px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  word-break:break-all;
-  padding:20px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 500;
-}
-.shareli {
-  position: relative;
-  width: calc(100% - 10px);
-  height: 50px;
-  border-top: 1px #f5f5f5 solid;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 500;
-  -webkit-user-select: none;
-}
-.save {
-  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.05);
-  width: 180px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  border-radius: 12px;
-  -webkit-user-select: none;
-  margin-top: 10px;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 500;
-}
-.savef {
-  width:100%;
-  height:75px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-select {
-  -webkit-appearance: none;
-  height: 25px;
-  width: 70px;
-  border-radius: 8px;
-  -webkit-user-select: none;
-}
-select[le="0"] {
-  color: #000;
-  border-color: #000;
-  background: rgba(255, 255, 255, 0);
-}
-select[le="1"] {
-  color: #2a9d8f;
-  border-color: #2a9d8f;
-  background: rgba(42, 157, 143, 0.15);
-}
-select[le="2"] {
-  color: #f4a261;
-  border-color: #f4a261;
-  background: rgba(244, 162, 97, 0.15);
-}
-select[le="3"] {
-  color: #e63946;
-  border-color: #e63946;
-  background: rgba(230, 57, 70, 0.15);
-}
-  @media (prefers-color-scheme: dark) {
-		:root {
-	--add-btn-color:#fff;
-	--bot-bar-col:#1f1f1f;
-}
-    .title {
-  background:rgba(0,0,0,0.6);
-  border-bottom:1px #1f1f1f solid;
-  color:#fff;
- }
-    body {
-background:#000;
-}
-    select[le="0"] {
-  color:#fff;
-  border-color:#fff;
-}
-    .sharecontent {
-      background:#000;
     }
-    .save {
-  background:#1f1f1f;
-  color:#fff;
-}
-    .shareli {
-      color:#fff;
-  border-top:1px #1f1f1f solid;
-}
+
+    .sharecard {
+      margin-top: 45px;
+      width: 100%;
+      height: calc(100% - 120px);
+      border-radius: 0px;
+      overflow: scroll;
+    }
+
     .sharecard .h5 {
-      color:#fff;
+      font-size: 20px;
+      width: calc(100% - 40px);
+      min-height: calc(100% - 51px * 4 - 1px - 40px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      word-break: break-all;
+      padding: 20px;
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 500;
     }
-    
+
+    .shareli {
+      position: relative;
+      width: calc(100% - 10px);
+      height: 50px;
+      border-top: 1px #f5f5f5 solid;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 500;
+      -webkit-user-select: none;
+    }
+
+    .save {
+      box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.05);
+      width: 180px;
+      height: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      border-radius: 12px;
+      -webkit-user-select: none;
+      margin-top: 10px;
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 500;
+    }
+
+    .savef {
+      width: 100%;
+      height: 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    select {
+      -webkit-appearance: none;
+      height: 25px;
+      width: 70px;
+      border-radius: 8px;
+      -webkit-user-select: none;
+    }
+
+    select[le="0"] {
+      color: #000;
+      border-color: #000;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    select[le="1"] {
+      color: #2a9d8f;
+      border-color: #2a9d8f;
+      background: rgba(42, 157, 143, 0.15);
+    }
+
+    select[le="2"] {
+      color: #f4a261;
+      border-color: #f4a261;
+      background: rgba(244, 162, 97, 0.15);
+    }
+
+    select[le="3"] {
+      color: #e63946;
+      border-color: #e63946;
+      background: rgba(230, 57, 70, 0.15);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --add-btn-color: #fff;
+        --bot-bar-col: #1f1f1f;
+      }
+
+      .title {
+        background: rgba(0, 0, 0, 0.6);
+        border-bottom: 1px #1f1f1f solid;
+        color: #fff;
+      }
+
+      body {
+        background: #000;
+      }
+
+      select[le="0"] {
+        color: #fff;
+        border-color: #fff;
+      }
+
+      .sharecontent {
+        background: #000;
+      }
+
+      .save {
+        background: #1f1f1f;
+        color: #fff;
+      }
+
+      .shareli {
+        color: #fff;
+        border-top: 1px #1f1f1f solid;
+      }
+
+      .sharecard .h5 {
+        color: #fff;
+      }
+
     }
   </style>
 </head>
@@ -177,36 +199,36 @@ background:#000;
     <div class="shareli" g="important"></div>
   </div>
   <div class="savef">
-  <div class="save" ripple-onclick="savethis()">將此項目新增到此裝置</div>
+    <div class="save" ripple-onclick="savethis()">將此項目新增到此裝置</div>
   </div>
 </div>
 <div class="title">已分享的項目</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
 <script>
-//var getUrlString =
+  //var getUrlString =
   "https://erichsia7.github.io/todolist/share/?d=ZWhrbG93b2MjZmFsc2UjVkc5a2J5VXlNRXhwYzNRPSMw";
-var getUrlString = location.href;
-var url = new URL(getUrlString);
-var data = atob(url.searchParams.get("d")).split("#");
-var data_id = data[0];
-var data_state = data[1];
-var data_content = decodeURIComponent(atob(data[2]));
-var data_important = data[3];
-if (data_state === "true") {
-  data_state = "已完成";
-} else {
-  data_state = "未完成";
-}
-$('.shareli[g="id"]').html("ID:" + data_id + "(重複時將會重新產生)");
-$(".h5").html(data_content);
-$('.shareli[g="length"]').html("字數:" + data_content.length);
-$('.shareli[g="state"]').html("狀態:" + data_state);
-$('.shareli[g="important"]').prepend(
-  '重要程度:<select name="importantl" id="importantl" value="1" disabled="disabled"><option value="0">普通</option><option value="1">次重要</option><option value="2">重要</option><option value="3">非常重要</option></select>'
-);
-$("#importantl").val(data_important).attr("le", data_important);
-  ripple('.save','var(--add-btn-color)','0.3',1200,'true');
+  var getUrlString = location.href;
+  var url = new URL(getUrlString);
+  var data = atob(url.searchParams.get("d")).split("#");
+  var data_id = data[0];
+  var data_state = data[1];
+  var data_content = decodeURIComponent(atob(data[2]));
+  var data_important = data[3];
+  if (data_state === "true") {
+    data_state = "已完成";
+  } else {
+    data_state = "未完成";
+  }
+  $('.shareli[g="id"]').html("ID:" + data_id + "(重複時將會重新產生)");
+  $(".h5").html(data_content);
+  $('.shareli[g="length"]').html("字數:" + data_content.length);
+  $('.shareli[g="state"]').html("狀態:" + data_state);
+  $('.shareli[g="important"]').prepend(
+    '重要程度:<select name="importantl" id="importantl" value="1" disabled="disabled"><option value="0">普通</option><option value="1">次重要</option><option value="2">重要</option><option value="3">非常重要</option></select>'
+  );
+  $("#importantl").val(data_important).attr("le", data_important);
+  ripple('.save', 'var(--add-btn-color)', '0.3', 1200, 'true');
   function savethis() {
     location.replace('https://erichsia7.github.io/todolist/?r=1&s=1&d=' + url.searchParams.get("d"));
   }
