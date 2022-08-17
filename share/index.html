@@ -1,15 +1,8 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
 <head>
   <meta charset="UTF-8">
   <title>Todo List - 已分享的項目</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFX3Z1G178"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-ZFX3Z1G178');
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
   <link href="https://erichsia7.github.io/todolist/pwaicon/512x512.png" sizes="512x512"
@@ -190,6 +183,7 @@
     }
   </style>
 </head>
+<body>
 <div class="sharecontent">
   <div class="sharecard">
     <div class="h5"></div>
@@ -203,6 +197,7 @@
   </div>
 </div>
 <div class="title">已分享的項目</div>
+</body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
 <script>
@@ -233,3 +228,4 @@
     location.replace('https://erichsia7.github.io/todolist/?r=1&s=1&d=' + url.searchParams.get("d"));
   }
 </script>
+</html>
