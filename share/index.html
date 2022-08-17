@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
   <meta charset="UTF-8">
   <title>Todo List - 已分享的項目</title>
@@ -34,6 +35,7 @@
       font-family: "Noto Sans TC", sans-serif;
       font-weight: 300;
       -webkit-user-select: none;
+      user-select: none;
     }
 
     .sharecontent {
@@ -45,6 +47,7 @@
       background: #fff;
       overflow: hidden;
       -webkit-user-select: none;
+      user-select: none;
       /*display: flex;
   justify-content: center;
   align-items: center;
@@ -84,6 +87,7 @@
       font-family: "Noto Sans TC", sans-serif;
       font-weight: 500;
       -webkit-user-select: none;
+      user-select: none;
     }
 
     .save {
@@ -96,6 +100,7 @@
       flex-direction: row;
       border-radius: 12px;
       -webkit-user-select: none;
+      user-select: none;
       margin-top: 10px;
       font-family: "Noto Sans TC", sans-serif;
       font-weight: 500;
@@ -115,6 +120,7 @@
       width: 70px;
       border-radius: 8px;
       -webkit-user-select: none;
+      user-select: none;
     }
 
     select[le="0"] {
@@ -183,20 +189,21 @@
     }
   </style>
 </head>
+
 <body>
-<div class="sharecontent">
-  <div class="sharecard">
-    <div class="h5"></div>
-    <div class="shareli" g="id"></div>
-    <div class="shareli" g="length"></div>
-    <div class="shareli" g="state"></div>
-    <div class="shareli" g="important"></div>
+  <div class="sharecontent">
+    <div class="sharecard">
+      <div class="h5"></div>
+      <div class="shareli" g="id"></div>
+      <div class="shareli" g="length"></div>
+      <div class="shareli" g="state"></div>
+      <div class="shareli" g="important"></div>
+    </div>
+    <div class="savef">
+      <div class="save" ripple-onclick="savethis()">將此項目新增到此裝置</div>
+    </div>
   </div>
-  <div class="savef">
-    <div class="save" ripple-onclick="savethis()">將此項目新增到此裝置</div>
-  </div>
-</div>
-<div class="title">已分享的項目</div>
+  <div class="title">已分享的項目</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
@@ -226,4 +233,5 @@
     location.replace('https://erichsia7.github.io/todolist/?r=1&s=1&d=' + url.searchParams.get("d"));
   }
 </script>
+
 </html>
