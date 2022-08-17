@@ -145,13 +145,6 @@
       user-select: none;
     }
 
-    .privacy::after {
-      content: '\f0dc';
-      -webkit-user-select: none;
-      user-select: none;
-    }
-
-
     .moreset::after {
       content: '\e8b8';
       -webkit-user-select: none;
@@ -1526,17 +1519,10 @@
     <div class="icon sync" id="syncst"
       style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;left:7.5px;transform:translateY(-50%)">
     </div>
-    Todo List<div class="icon privacy"
-      style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:45px;transform:translateY(-50%)"
-      ripple-onclick="privacylink()"></div>
+    Todo List
     <div class="icon moreset"
       style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)"
       ripple-onclick="moreset()"></div>
-  </div>
-
-  <div class="hint-c"></div>
-  <div class="hint">
-    點擊查看隱私政策
   </div>
 
   <div class="morebg"></div>
@@ -1578,9 +1564,6 @@
       <div class="moresetopt" g="githublink" ripple-onclick="window.open('https://github.com/EricHsia7/todolist')">
         Github
       </div>
-      <div class="moresetopt" g="privacylink"
-        ripple-onclick="window.open('https://github.com/EricHsia7/todolist/blob/main/privacy.md')">隱私政策</div>
-      <div class="moresetopt cntidmo" g="user_count_id"></div>
     </div>
     <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div>
     </div>
@@ -1636,7 +1619,7 @@
   ripple('.moreclose,.moresetclose,.shareclose', 'var(--add-btn-color)', '0.3', 500, 'true');
   ripple('.delete', '#E76F51', '0.3', 500, 'true');
   ripple('.copy_text,.share_this', 'var(--add-btn-color)', '0.3', 500, 'true');
-  ripple('.moreset,.privacy', 'var(--add-btn-color)', '0.3', 500, 'false');
+  ripple('.moreset', 'var(--add-btn-color)', '0.3', 500, 'false');
   ripple('.moresetcontent .moresetopt', 'var(--add-btn-color)', '0.3', 1200, 'true');
   ripple('.alert-btn', 'var(--add-btn-color)', '0.3', 500, 'true');
   function genid(mode) {
@@ -2016,8 +1999,6 @@
     todolistcookiestoragesize = ((getCookie('todolist').length / 4090) * 100).toFixed(2) + '%';
     $('.moresetopt[g="storagesize"]').html('儲存空間(4096byte):' + todolistcookiestoragesize);
     $('.moresetopt[g="list_quantity"]').html('項目數量:' + $('.list li').length);
-    $('.moresetopt[g="user_count_id"]').html('工作階段ID:' + localStorage.getItem('todolist_user'));
-
 
     $('.moresetbg').css({ 'display': 'block' });
     $('.moresetbox').css({ 'display': 'block' });
@@ -2267,22 +2248,10 @@
       issaved = false;
     });
 
-
     $('body').prompt({ 'message': '已新增分享的項目', 'time': 800, 'animate': 'slide' });
     $('.content').scrollTop($('.content').innerHeight());
     history.pushState(null, null, 'https://erichsia7.github.io/todolist/?r=1&re=' + genid('uuid'));
   }
-  function privacylink() {
-    window.open('https://github.com/EricHsia7/todolist/blob/main/privacy.md')
-  }
-
-  if (getCookie('privacyhint') === '1') {
-    $('.hint,.hint-c').remove();
-  }
-  setTimeout(function () {
-    $('.hint,.hint-c').remove();
-    setcookie('privacyhint', '1');
-  }, 2000);
 </script>
 
 </html>
