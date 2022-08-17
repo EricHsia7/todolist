@@ -1,15 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
 <head>
   <meta charset="UTF-8">
   <title>Todo List</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFX3Z1G178"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-ZFX3Z1G178');
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
   <link href="pwaicon/512x512.png" sizes="512x512" rel="apple-touch-icon-precomposed" />
@@ -1239,163 +1233,331 @@
       }
     }
   </style>
+  <style>
+    .bottom-bar {
+      bottom: 0;
+    }
+
+    .bottom-bar::after {
+      content: "";
+      background: #fff;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      height: 0;
+      width: 100%;
+    }
+
+    @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+      .bottom-bar {
+        bottom: 12pt;
+      }
+
+      .bottom-bar::after {
+        content: "";
+        background: #fff;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 12pt;
+        width: 100%;
+      }
+    }
+
+    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+      .bottom-bar {
+        bottom: 12pt;
+      }
+
+      .bottom-bar::after {
+        content: "";
+        background: #fff;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 12pt;
+        width: 100%;
+      }
+    }
+
+    @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+      .bottom-bar {
+        bottom: 12pt;
+      }
+
+      .bottom-bar::after {
+        content: "";
+        background: #fff;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 12pt;
+        width: 100%;
+      }
+    }
+
+    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+      .bottom-bar {
+        bottom: 12pt;
+      }
+
+      .bottom-bar::after {
+        content: "";
+        background: #fff;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 12pt;
+        width: 100%;
+      }
+    }
+
+
+    @media (prefers-color-scheme: dark) {
+      .bottom-bar {
+        bottom: 0;
+      }
+
+      .bottom-bar::after {
+        content: "";
+        background: #000;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        width: 100%;
+      }
+
+      @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+        .bottom-bar {
+          bottom: 12pt;
+        }
+
+        .bottom-bar::after {
+          content: "";
+          background: #000;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          height: 12pt;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+        .bottom-bar {
+          bottom: 12pt;
+        }
+
+        .bottom-bar::after {
+          content: "";
+          background: #000;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          height: 12pt;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+        .bottom-bar {
+          bottom: 12pt;
+        }
+
+        .bottom-bar::after {
+          content: "";
+          background: #000;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          height: 12pt;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+        .bottom-bar {
+          bottom: 12pt;
+        }
+
+        .bottom-bar::after {
+          content: "";
+          background: #000;
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          height: 12pt;
+          width: 100%;
+        }
+      }
+    }
+
+    @media only screen and (min-width: 600px) {
+      .bottom-bar::after {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<div class="content">
-  <div class="searchbox">
-    <input type="text" placeholder="搜尋" id="search-input">
-    <div class="deleteinputtext"></div>
+
+<body>
+  <div class="content">
+    <div class="searchbox">
+      <input type="text" placeholder="搜尋" id="search-input">
+      <div class="deleteinputtext"></div>
+    </div>
+    <div class="list">
+    </div>
+    <div class="add">
+      <div class="addf" ripple-onclick="addThing()">
+        <div class="icon addicon"></div>新增項目
+      </div>
+    </div>
+    <style id="thingstyle">
+    </style>
   </div>
-  <div class="list">
+
+  <div class="ti"></div>
+
+  <div class="bottom-bar">
+    <div class="buttom-bar-button a333" ronclick="tab(0)">
+      <div class="icon allicon"></div>
+      <span>
+        全部
+      </span>
+    </div>
+
+    <div class="buttom-bar-button" ronclick="tab(1)">
+      <div class="icon nicon"></div>
+      <span>
+        未完成
+      </span>
+    </div>
+    <div class="buttom-bar-button" ronclick="tab(2)">
+      <div class="icon kicon"></div>
+      <span>
+        已完成
+      </span>
+    </div>
+
+    <div class="buttom-bar-button" ronclick="tab(3)">
+      <div class="icon clooicon"></div>
+      <span>
+        番茄鐘
+      </span>
+    </div>
+
+
+    <div class="storage-box">
+      <div class="icon storage"></div>
+      <div class="storage-title-and-bar">
+        <div id="storage-title">儲存空間</div>
+        <div class="storage-bar">
+          <div class="storage-bar2"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="add">
-    <div class="addf" ripple-onclick="addThing()">
-      <div class="icon addicon"></div>新增項目
+
+  <div class="title">
+    <div class="icon sync" id="syncst"
+      style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;left:7.5px;transform:translateY(-50%)">
+    </div>
+    Todo List<div class="icon privacy"
+      style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:45px;transform:translateY(-50%)"
+      ripple-onclick="privacylink()"></div>
+    <div class="icon moreset"
+      style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)"
+      ripple-onclick="moreset()"></div>
+  </div>
+
+  <div class="hint-c"></div>
+  <div class="hint">
+    點擊查看隱私政策
+  </div>
+
+  <div class="morebg"></div>
+  <div class="morebox">
+    <div class="morecontent">
+      <div class="moreopt" style="margin-top:45px" g="id"></div>
+      <div class="moreopt" g="length"></div>
+      <div class="moreopt" g="state"></div>
+      <div class="moreopt" g="important">
+        重要程度:
+        <select name="importantl" id="importantl" value="1">
+          <option value="0">普通</option>
+          <option value="1">次重要</option>
+          <option value="2">重要</option>
+          <option value="3">非常重要</option>
+        </select>
+      </div>
+      <div class="moreopt flexrow">動作:<div class="share_this">分享</div>
+        <div class="copy_text">拷貝文字</div>
+        <div class="delete">刪除項目</div>
+      </div>
+    </div>
+    <div class="moretitle">選項<div class="icon moreclose" ripple-onclick="closemore()"></div>
     </div>
   </div>
-  <style id="thingstyle">
-  </style>
-</div>
 
-<div class="ti"></div>
 
-<div class="bottom-bar">
-  <div class="buttom-bar-button a333" ronclick="tab(0)">
-    <div class="icon allicon"></div>
-    <span>
-      全部
-    </span>
+
+  <div class="moresetbg"></div>
+  <div class="moresetbox">
+    <div class="moresetcontent">
+      <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="relooad()">重新整理</div>
+      <div class="moresetopt" g="deleteall" ripple-onclick="deleteallthing()">刪除所有項目</div>
+      <div class="moresetopt" g="deletedone" ripple-onclick="deletedonething()">刪除已完成項目</div>
+      <div class="moresetopt" g="deleten" ripple-onclick="deletenthing()">刪除未完成項目</div>
+      <div class="moresetopt" g="import-export" ripple-onclick="import_export()">匯入/匯出</div>
+      <div class="moresetopt" g="storagesize"></div>
+      <div class="moresetopt" g="list_quantity"></div>
+      <div class="moresetopt" g="githublink" ripple-onclick="window.open('https://github.com/EricHsia7/todolist')">
+        Github
+      </div>
+      <div class="moresetopt" g="privacylink"
+        ripple-onclick="window.open('https://github.com/EricHsia7/todolist/blob/main/privacy.md')">隱私政策</div>
+      <div class="moresetopt cntidmo" g="user_count_id"></div>
+    </div>
+    <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div>
+    </div>
   </div>
 
-  <div class="buttom-bar-button" ronclick="tab(1)">
-    <div class="icon nicon"></div>
-    <span>
-      未完成
-    </span>
-  </div>
-  <div class="buttom-bar-button" ronclick="tab(2)">
-    <div class="icon kicon"></div>
-    <span>
-      已完成
-    </span>
-  </div>
-
-  <div class="buttom-bar-button" ronclick="tab(3)">
-    <div class="icon clooicon"></div>
-    <span>
-      番茄鐘
-    </span>
+  <div class="sharebg"></div>
+  <div class="sharebox">
+    <div class="sharecontent">
+      <div class="share-qrcode-image">
+      </div>
+      <div class="share-btn-bar">
+        <div class="share-btn" ripple-onclick="copysharelink()" g="coshli">拷貝連結</div>
+        <div class="share-btn" style="margin-left:10px;" ripple-onclick="sharelinkm()" g="shmli">分享連結</div>
+      </div>
+    </div>
+    <div class="sharetitle">分享<div class="icon shareclose" ripple-onclick="shareclose()"></div>
+    </div>
   </div>
 
-
-  <div class="storage-box">
-    <div class="icon storage"></div>
-    <div class="storage-title-and-bar">
-      <div id="storage-title">儲存空間</div>
-      <div class="storage-bar">
-        <div class="storage-bar2"></div>
+  <div class="alertbg"></div>
+  <div class="alert">
+    <img src="https://erichsia7.github.io/todolist/svg/Collecting-amico.svg">
+    <h3>儲存空間不足</h3>
+    <div class="alert-mes">您必須刪除一些項目，才能釋出空間並繼續儲存新項目。</div>
+    <div>
+      <div class="btnb">
+        <div class="alert-btn" ripple-onclick="storagealertclose();">關閉</div>
+        <div class="alert-btn" ripple-onclick="storagealertclose();moreset();">開啟設定</div>
       </div>
     </div>
   </div>
 
-</div>
-
-<div class="title">
-  <div class="icon sync" id="syncst"
-    style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;left:7.5px;transform:translateY(-50%)"></div>
-  Todo List<div class="icon privacy"
-    style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:45px;transform:translateY(-50%)"
-    ripple-onclick="privacylink()"></div>
-  <div class="icon moreset"
-    style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)"
-    ripple-onclick="moreset()"></div>
-</div>
-
-<div class="hint-c"></div>
-<div class="hint">
-  點擊查看隱私政策
-</div>
-
-<div class="morebg"></div>
-<div class="morebox">
-  <div class="morecontent">
-    <div class="moreopt" style="margin-top:45px" g="id"></div>
-    <div class="moreopt" g="length"></div>
-    <div class="moreopt" g="state"></div>
-    <div class="moreopt" g="important">
-      重要程度:
-      <select name="importantl" id="importantl" value="1">
-        <option value="0">普通</option>
-        <option value="1">次重要</option>
-        <option value="2">重要</option>
-        <option value="3">非常重要</option>
-      </select>
-    </div>
-    <div class="moreopt flexrow">動作:<div class="share_this">分享</div>
-      <div class="copy_text">拷貝文字</div>
-      <div class="delete">刪除項目</div>
-    </div>
-  </div>
-  <div class="moretitle">選項<div class="icon moreclose" ripple-onclick="closemore()"></div>
-  </div>
-</div>
-
-
-
-<div class="moresetbg"></div>
-<div class="moresetbox">
-  <div class="moresetcontent">
-    <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="relooad()">重新整理</div>
-    <div class="moresetopt" g="deleteall" ripple-onclick="deleteallthing()">刪除所有項目</div>
-    <div class="moresetopt" g="deletedone" ripple-onclick="deletedonething()">刪除已完成項目</div>
-    <div class="moresetopt" g="deleten" ripple-onclick="deletenthing()">刪除未完成項目</div>
-    <div class="moresetopt" g="import-export" ripple-onclick="import_export()">匯入/匯出</div>
-    <div class="moresetopt" g="storagesize"></div>
-    <div class="moresetopt" g="list_quantity"></div>
-    <div class="moresetopt" g="githublink" ripple-onclick="window.open('https://github.com/EricHsia7/todolist')">Github
-    </div>
-    <div class="moresetopt" g="privacylink"
-      ripple-onclick="window.open('https://github.com/EricHsia7/todolist/blob/main/privacy.md')">隱私政策</div>
-    <div class="moresetopt cntidmo" g="user_count_id"></div>
-  </div>
-  <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div>
-  </div>
-</div>
-
-<div class="sharebg"></div>
-<div class="sharebox">
-  <div class="sharecontent">
-    <div class="share-qrcode-image">
-    </div>
-    <div class="share-btn-bar">
-      <div class="share-btn" ripple-onclick="copysharelink()" g="coshli">拷貝連結</div>
-      <div class="share-btn" style="margin-left:10px;" ripple-onclick="sharelinkm()" g="shmli">分享連結</div>
-    </div>
-  </div>
-  <div class="sharetitle">分享<div class="icon shareclose" ripple-onclick="shareclose()"></div>
-  </div>
-</div>
-
-<div class="alertbg"></div>
-<div class="alert">
-  <img src="https://erichsia7.github.io/todolist/svg/Collecting-amico.svg">
-  <h3>儲存空間不足</h3>
-  <div class="alert-mes">您必須刪除一些項目，才能釋出空間並繼續儲存新項目。</div>
-  <div>
-    <div class="btnb">
-      <div class="alert-btn" ripple-onclick="storagealertclose();">關閉</div>
-      <div class="alert-btn" ripple-onclick="storagealertclose();moreset();">開啟設定</div>
-    </div>
-  </div>
-</div>
-
-
-
+</body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://erichsia7.github.io/ripple.js/ripple.min.js"></script>
 <script src="https://erichsia7.github.io/prompt.js/prompt.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="https://erichsia7.github.io/todolist/sha256.min.js"></script>
 <script>
   var getUrlString = location.href;
   var url = new URL(getUrlString);
@@ -1478,21 +1640,12 @@
 
   function relooad() {
     var reloaduuidfft = genid('uuid');
-    gtag('event', 'reload', {
-      'event_category': 'reload',
-      'event_label': url_re + ':' + reloaduuidfft,
-      'transport_type': 'beacon',
-      'event_callback': function () {
-
-        if (url_pwa === "1") {
-          location.replace('https://erichsia7.github.io/todolist/?pwa=1&r=1&re=' + reloaduuidfft);
-        }
-        else {
-          location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + reloaduuidfft);
-        }
-
-      }
-    });
+    if (url_pwa === "1") {
+      location.replace('https://erichsia7.github.io/todolist/?pwa=1&r=1&re=' + reloaduuidfft);
+    }
+    else {
+      location.replace('https://erichsia7.github.io/todolist/?r=1&re=' + reloaduuidfft);
+    }
   }
 
 
@@ -1687,12 +1840,6 @@
       issaved = false;
     });
 
-    gtag('event', 'add', {
-      'event_category': 'add',
-      'event_label': rdid,
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
   }
   initialize_cl()
 
@@ -1735,13 +1882,6 @@
   });
   function openmore(piid) {
 
-    gtag('event', 'openmore', {
-      'event_category': 'openmore',
-      'event_label': sha256($('#' + piid + ' input[type="text"]').val()),
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
-
     $('.morebg').css({ 'display': 'block' });
     $('.morebox').css({ 'display': 'block' }).attr('piid', piid);
     setTimeout(function () {
@@ -1777,12 +1917,6 @@
     $(this).attr('le', $(this).val());
   });
   function deletething(delid) {
-    gtag('event', 'delete_one', {
-      'event_category': 'delete_one',
-      'event_label': sha256($('#' + delid + ' input[type="text"]').val()),
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
     closemore();
     $('#' + delid).remove();
     issaved = false;
@@ -1794,14 +1928,6 @@
     document.execCommand("Copy");
     closemore();
     $('body').prompt({ 'message': '已拷貝', 'time': 800, 'animate': 'slide' });
-    gtag('event', 'copytext', {
-      'event_category': 'copytext',
-      'event_label': sha256($('#' + copyid + ' input[type="text"]').val()),
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
-
-
   }
   $('.morebg').click(function () {
     closemore();
@@ -1852,36 +1978,18 @@
     moresetclose();
   });
   function deleteallthing() {
-    gtag('event', 'delete_all', {
-      'event_category': 'delete_all',
-      'event_label': $('.list li').length,
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
     moresetclose();
     $('.list li').remove();
     issaved = false;
     $('body').prompt({ 'message': '已刪除所有項目', 'time': 800, 'animate': 'slide' });
   }
   function deletedonething() {
-    gtag('event', 'delete_done', {
-      'event_category': 'delete_done',
-      'event_label': $('.list li[f="done"]').length,
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
     moresetclose();
     $('.list li[f="done"]').remove();
     issaved = false;
     $('body').prompt({ 'message': '已刪除完成的項目', 'time': 800, 'animate': 'slide' });
   }
   function deletenthing() {
-    gtag('event', 'delete_undone', {
-      'event_category': 'delete_undone',
-      'event_label': $('.list li[f="n"]').length,
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
     moresetclose();
     $('.list li[f="n"]').remove();
     issaved = false;
@@ -1889,12 +1997,6 @@
   }
   function storageisfull() {
     if (storagefull < 1) {
-      gtag('event', 'storageisfull', {
-        'event_category': 'storageisfull',
-        'event_label': $('.list li').length + ',' + getCookie('todolist').length,
-        'transport_type': 'beacon',
-        'event_callback': function () { }
-      });
       $('.alert').css({ 'display': 'flex' });
       $('.alertbg').css({ 'display': 'block' });
       setTimeout(function () {
@@ -1916,12 +2018,6 @@
   }
 
   function shareb(shareid) {
-    gtag('event', 'share', {
-      'event_category': 'share',
-      'event_label': sha256($('#' + shareid).attr('cookie-data')),
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
     closemore();
     $('.sharebg').css({ 'display': 'block' });
     $('.sharebox').css({ 'display': 'block' });
@@ -2073,12 +2169,6 @@
   });
   */
   if (url_r === '1' && url_share === '1') {
-    gtag('event', 'share_add', {
-      'event_category': 'share_add',
-      'event_label': sha256(atob(url_data)),
-      'transport_type': 'beacon',
-      'event_callback': function () { }
-    });
     var data = atob(url_data).split("#");
     var data_id = data[0];
     var data_state = data[1];
@@ -2125,32 +2215,6 @@
     window.open('https://github.com/EricHsia7/todolist/blob/main/privacy.md')
   }
 
-  function usercount() {
-    if (localStorage.getItem('todolist_user') === null) {
-      var usercountidchars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
-      var usercountid = "";
-      for (var i = 0; i < 64; i++) {
-        var usercountidrandomNumber = Math.floor(Math.random() * usercountidchars.length);
-        usercountid += usercountidchars.substring(usercountidrandomNumber, usercountidrandomNumber + 1);
-      }
-      //setcookie('todolist_user',usercountid);
-      localStorage.setItem('todolist_user', usercountid);
-    }
-    else {
-      //setcookie('todolist_user',getCookie('todolist_user'));
-    }
-
-    if (url_r === '1') {
-      gtag('event', 'user_count_e', {
-        'event_category': 'user_count_e',
-        'event_label': localStorage.getItem('todolist_user'),
-        'transport_type': 'beacon',
-        'event_callback': function () { }
-      });
-    }
-
-  }
-  usercount();
   if (getCookie('privacyhint') === '1') {
     $('.hint,.hint-c').remove();
   }
@@ -2159,169 +2223,5 @@
     setcookie('privacyhint', '1');
   }, 2000);
 </script>
-<style>
-  .bottom-bar {
-    bottom: 0;
-  }
 
-  .bottom-bar::after {
-    content: "";
-    background: #fff;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-  }
-
-  @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-    .bottom-bar {
-      bottom: 12pt;
-    }
-
-    .bottom-bar::after {
-      content: "";
-      background: #fff;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      height: 12pt;
-      width: 100%;
-    }
-  }
-
-  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .bottom-bar {
-      bottom: 12pt;
-    }
-
-    .bottom-bar::after {
-      content: "";
-      background: #fff;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      height: 12pt;
-      width: 100%;
-    }
-  }
-
-  @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
-    .bottom-bar {
-      bottom: 12pt;
-    }
-
-    .bottom-bar::after {
-      content: "";
-      background: #fff;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      height: 12pt;
-      width: 100%;
-    }
-  }
-
-  @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-    .bottom-bar {
-      bottom: 12pt;
-    }
-
-    .bottom-bar::after {
-      content: "";
-      background: #fff;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      height: 12pt;
-      width: 100%;
-    }
-  }
-
-
-  @media (prefers-color-scheme: dark) {
-    .bottom-bar {
-      bottom: 0;
-    }
-
-    .bottom-bar::after {
-      content: "";
-      background: #000;
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      height: 0;
-      width: 100%;
-    }
-
-    @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-      .bottom-bar {
-        bottom: 12pt;
-      }
-
-      .bottom-bar::after {
-        content: "";
-        background: #000;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 12pt;
-        width: 100%;
-      }
-    }
-
-    @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-      .bottom-bar {
-        bottom: 12pt;
-      }
-
-      .bottom-bar::after {
-        content: "";
-        background: #000;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 12pt;
-        width: 100%;
-      }
-    }
-
-    @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
-      .bottom-bar {
-        bottom: 12pt;
-      }
-
-      .bottom-bar::after {
-        content: "";
-        background: #000;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 12pt;
-        width: 100%;
-      }
-    }
-
-    @media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-      .bottom-bar {
-        bottom: 12pt;
-      }
-
-      .bottom-bar::after {
-        content: "";
-        background: #000;
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        height: 12pt;
-        width: 100%;
-      }
-    }
-  }
-
-  @media only screen and (min-width: 600px) {
-    .bottom-bar::after {
-      display: none;
-    }
-  }
-</style>
+</html>
