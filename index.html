@@ -1464,7 +1464,7 @@
     <div class="list">
     </div>
     <div class="add">
-      <div class="addf" ripple-onclick="addThing()">
+      <div class="addf" onclick="addThing()">
         <div class="icon addicon"></div>新增項目
       </div>
     </div>
@@ -1522,7 +1522,7 @@
     Todo List
     <div class="icon moreset"
       style="font-size:30px;width:35px;height:35px;position:absolute;top:50%;right:7.5px;transform:translateY(-50%)"
-      ripple-onclick="moreset()"></div>
+      onclick="moreset()"></div>
   </div>
 
   <div class="morebg"></div>
@@ -1545,7 +1545,7 @@
         <div class="delete">刪除項目</div>
       </div>
     </div>
-    <div class="moretitle">選項<div class="icon moreclose" ripple-onclick="closemore()"></div>
+    <div class="moretitle">選項<div class="icon moreclose" onclick="closemore()"></div>
     </div>
   </div>
 
@@ -1554,18 +1554,18 @@
   <div class="moresetbg"></div>
   <div class="moresetbox">
     <div class="moresetcontent">
-      <div class="moresetopt" style="margin-top:45px" g="reload" ripple-onclick="relooad()">重新整理</div>
-      <div class="moresetopt" g="deleteall" ripple-onclick="deleteallthing()">刪除所有項目</div>
-      <div class="moresetopt" g="deletedone" ripple-onclick="deletedonething()">刪除已完成項目</div>
-      <div class="moresetopt" g="deleten" ripple-onclick="deletenthing()">刪除未完成項目</div>
-      <div class="moresetopt" g="import-export" ripple-onclick="import_export()">匯入/匯出</div>
+      <div class="moresetopt" style="margin-top:45px" g="reload" onclick="relooad()">重新整理</div>
+      <div class="moresetopt" g="deleteall" onclick="deleteallthing()">刪除所有項目</div>
+      <div class="moresetopt" g="deletedone" onclick="deletedonething()">刪除已完成項目</div>
+      <div class="moresetopt" g="deleten" onclick="deletenthing()">刪除未完成項目</div>
+      <div class="moresetopt" g="import-export" onclick="import_export()">匯入/匯出</div>
       <div class="moresetopt" g="storagesize"></div>
       <div class="moresetopt" g="list_quantity"></div>
-      <div class="moresetopt" g="githublink" ripple-onclick="window.open('https://github.com/EricHsia7/todolist')">
+      <div class="moresetopt" g="githublink" onclick="window.open('https://github.com/EricHsia7/todolist')">
         Github
       </div>
     </div>
-    <div class="moresettitle">選項<div class="icon moresetclose" ripple-onclick="moresetclose()"></div>
+    <div class="moresettitle">選項<div class="icon moresetclose" onclick="moresetclose()"></div>
     </div>
   </div>
 
@@ -1575,11 +1575,11 @@
       <div class="share-qrcode-image">
       </div>
       <div class="share-btn-bar">
-        <div class="share-btn" ripple-onclick="copysharelink()" g="coshli">拷貝連結</div>
-        <div class="share-btn" style="margin-left:10px;" ripple-onclick="sharelinkm()" g="shmli">分享連結</div>
+        <div class="share-btn" onclick="copysharelink()" g="coshli">拷貝連結</div>
+        <div class="share-btn" style="margin-left:10px;" onclick="sharelinkm()" g="shmli">分享連結</div>
       </div>
     </div>
-    <div class="sharetitle">分享<div class="icon shareclose" ripple-onclick="shareclose()"></div>
+    <div class="sharetitle">分享<div class="icon shareclose" onclick="shareclose()"></div>
     </div>
   </div>
 
@@ -1590,8 +1590,8 @@
     <div class="alert-mes">您必須刪除一些項目，才能釋出空間並繼續儲存新項目。</div>
     <div>
       <div class="btnb">
-        <div class="alert-btn" ripple-onclick="storagealertclose();">關閉</div>
-        <div class="alert-btn" ripple-onclick="storagealertclose();moreset();">開啟設定</div>
+        <div class="alert-btn" onclick="storagealertclose();">關閉</div>
+        <div class="alert-btn" onclick="storagealertclose();moreset();">開啟設定</div>
       </div>
     </div>
   </div>
@@ -1599,7 +1599,7 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/@erichsia7/ripple@latest/dist/index.min.js"></script>
+<script src="https://unpkg.com/@erichsia7/ripple@1.1.8/dist/index.min.js"></script>
 <script src="https://erichsia7.github.io/prompt.js/prompt.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
@@ -1614,14 +1614,14 @@
   var ti, rt, ko, ee;
   var lo = 0
   var ld = 0;
-  ripple('.buttom-bar-button', '#000', '0.3', 1200, 'true');
-  ripple('.addf,.share-btn', 'var(--add-btn-color)', '0.3', 1200, 'true');
-  ripple('.moreclose,.moresetclose,.shareclose', 'var(--add-btn-color)', '0.3', 500, 'true');
-  ripple('.delete', '#E76F51', '0.3', 500, 'true');
-  ripple('.copy_text,.share_this', 'var(--add-btn-color)', '0.3', 500, 'true');
-  ripple('.moreset', 'var(--add-btn-color)', '0.3', 500, 'false');
-  ripple('.moresetcontent .moresetopt', 'var(--add-btn-color)', '0.3', 1200, 'true');
-  ripple('.alert-btn', 'var(--add-btn-color)', '0.3', 500, 'true');
+  ripple.addTo('.buttom-bar-button', '#000', 1200);
+  ripple.addTo('.addf,.share-btn', 'var(--add-btn-color)', 1200);
+  ripple.addTo('.moreclose,.moresetclose,.shareclose', 'var(--add-btn-color)', 500);
+  ripple.addTo('.delete', '#E76F51', 500);
+  ripple.addTo('.copy_text,.share_this', 'var(--add-btn-color)', 500);
+  ripple.addTo('.moreset', 'var(--add-btn-color)', 500);
+  ripple.addTo('.moresetcontent .moresetopt', 'var(--add-btn-color)', 1200);
+  ripple.addTo('.alert-btn', 'var(--add-btn-color)', 500);
   function genid(mode) {
     if (mode === "random") {
       var genidchars = "0123456789abcdefghijklmnopqrstuvwxyz";
@@ -1808,10 +1808,10 @@
         }
         var rdid = getCookie('todolist').split('&')[i].split('#')[0];
         var trdid = "'" + rdid + "'";
-        $('.list').append('<li id="' + rdid + '" f="' + fstrtt + '" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '" cookie-data="' + getCookie('todolist').split('&')[i] + '"><input type="checkbox" pid="' + rdid + '" ' + checkedsta + '><input type="text" value="' + decodeURIComponent(atob(getCookie('todolist').split('&')[i].split('#')[2])) + '"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
+        $('.list').append('<li id="' + rdid + '" f="' + fstrtt + '" important="' + getCookie('todolist').split('&')[i].split('#')[3] + '" le="' + getCookie('todolist').split('&')[i].split('#')[3] + '" cookie-data="' + getCookie('todolist').split('&')[i] + '"><input type="checkbox" pid="' + rdid + '" ' + checkedsta + '><input type="text" value="' + decodeURIComponent(atob(getCookie('todolist').split('&')[i].split('#')[2])) + '"><div class="icon more" pid="' + rdid + '" onclick="openmore(' + trdid + ')"></div></li>');
         $('#' + rdid).css({ 'transform': 'scaleY(1)', 'opacity': '1' });
 
-        ripple('.more[pid="' + rdid + '"]', 'var(--add-btn-color)', '0.3', 500, 'true');
+        ripple.addTo('.more[pid="' + rdid + '"]', 'var(--add-btn-color)', 500);
 
         $('input[type="checkbox"]').click(function () {
           if ($(this).prop("checked")) {
@@ -1853,7 +1853,7 @@
   function addThing() {
     var rdid = genid('random');
     var trdid = "'" + rdid + "'"
-    $('.list').append('<li id="' + rdid + '" f="n" important="0" le="0"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" ripple-onclick="openmore(' + trdid + ')"></div></li>');
+    $('.list').append('<li id="' + rdid + '" f="n" important="0" le="0"><input type="checkbox" pid="' + rdid + '"><input type="text"><div class="icon more" pid="' + rdid + '" onclick="openmore(' + trdid + ')"></div></li>');
 
 
     setTimeout(function () {
@@ -1863,7 +1863,7 @@
       $('#' + rdid + ' input').focus();
     }, 100);
     //add
-    ripple('.more[pid="' + rdid + '"]', 'var(--add-btn-color)', '0.3', 500, 'true');
+    ripple.addTo('.more[pid="' + rdid + '"]', 'var(--add-btn-color)', 500);
 
     $('input[type="checkbox"]').click(function () {
       if ($(this).prop("checked")) {
@@ -1943,9 +1943,9 @@
     }
     $('#importantl').val($('#' + piid).attr('important')).attr('le', $('#' + piid).attr('important'));
     var tpiid = '"' + piid + '"';
-    $('.delete').attr('ripple-onclick', 'deletething(' + tpiid + ')');
-    $('.copy_text').attr('ripple-onclick', 'copytext(' + tpiid + ')');
-    $('.share_this').attr('ripple-onclick', 'shareb(' + tpiid + ')');
+    $('.delete').attr('onclick', 'deletething(' + tpiid + ')');
+    $('.copy_text').attr('onclick', 'copytext(' + tpiid + ')');
+    $('.share_this').attr('onclick', 'shareb(' + tpiid + ')');
   }
   function closemore() {
     $('#' + $('.morebox').attr('piid')).attr('important', $('#importantl').val()).attr('le', $('#importantl').val());
@@ -2077,8 +2077,8 @@
       correctLevel: QRCode.CorrectLevel.L
     });
     var tpshiid = '"' + shareid + '"';
-    $('.share-btn[g="coshli"]').attr('ripple-onclick', 'copysharelink(' + tpshiid + ')');
-    $('.share-btn[g="shmli"]').attr('ripple-onclick', 'sharelinkm(' + tpshiid + ')');
+    $('.share-btn[g="coshli"]').attr('onclick', 'copysharelink(' + tpshiid + ')');
+    $('.share-btn[g="shmli"]').attr('onclick', 'sharelinkm(' + tpshiid + ')');
   }
   function sharelinkm(sharemid) {
     if (navigator.share) {
@@ -2227,9 +2227,9 @@
       fstrttjj = 'done';
     }
     var gtfid = "'" + data_id + "'";
-    $('.list').append('<li id="' + data_id + '" f="' + fstrttjj + '" important="' + data_important + '" le="' + data_important + '"><input type="checkbox" pid="' + data_id + '" ' + checkedstajj + '><input type="text" value="' + data_content + '"><div class="icon more" pid="' + data_id + '" ripple-onclick="openmore(' + gtfid + ')"></div></li>');
+    $('.list').append('<li id="' + data_id + '" f="' + fstrttjj + '" important="' + data_important + '" le="' + data_important + '"><input type="checkbox" pid="' + data_id + '" ' + checkedstajj + '><input type="text" value="' + data_content + '"><div class="icon more" pid="' + data_id + '" onclick="openmore(' + gtfid + ')"></div></li>');
     $('#' + data_id).css({ 'transform': 'scaleY(1)', 'opacity': '1' });
-    ripple('.more[pid="' + data_id + '"]', 'var(--add-btn-color)', '0.3', 500, 'true');
+    ripple.addTo('.more[pid="' + data_id + '"]', 'var(--add-btn-color)', 500);
 
     $('input[type="checkbox"]').click(function () {
 
